@@ -20,6 +20,8 @@ config/icon="res://Assets/Technical/logo.png"
 [autoload]
 
 DataControl="*res://Source/Classes/DataControl.gd"
+FightHandler="*res://Source/Classes/FightHandler.gd"
+DbHandler="*res://Source/Classes/DBHandler.gd"
 
 [display]
 
@@ -28,6 +30,10 @@ window/size/viewport_height=960
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 window/handheld/orientation=1
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/godot-sqlite/plugin.cfg")
 
 [rendering]
 

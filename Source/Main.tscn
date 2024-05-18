@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://g4ikqek0qtvo"]
+[gd_scene load_steps=15 format=3 uid="uid://g4ikqek0qtvo"]
 
 [ext_resource type="Script" path="res://Source/Main.gd" id="1_fyseh"]
 [ext_resource type="Texture2D" uid="uid://cyf7uwojyderb" path="res://Assets/UI/green_bg.png" id="2_lrqpj"]
@@ -10,6 +10,17 @@
 [ext_resource type="Texture2D" uid="uid://ctl4fwju6c0ie" path="res://Assets/UI/background.png" id="7_btnuo"]
 [ext_resource type="Texture2D" uid="uid://byuvq5gxtqsrq" path="res://Assets/UI/Church.png" id="9_khixs"]
 [ext_resource type="Texture2D" uid="uid://ktpuj47hjacf" path="res://Assets/UI/House.png" id="10_a2bf6"]
+[ext_resource type="Texture2D" uid="uid://cr1gfmqkt0gmt" path="res://Assets/UI/board_window.png" id="11_tfl4e"]
+[ext_resource type="Texture2D" uid="uid://dn152coomiitc" path="res://Assets/UI/Cross.png" id="13_1lmx6"]
+
+[sub_resource type="Gradient" id="Gradient_y4y1o"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 0.20956, 0.186606, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_8pa6e"]
+gradient = SubResource("Gradient_y4y1o")
+width = 32
+height = 32
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -43,17 +54,17 @@ texture = ExtResource("7_btnuo")
 
 [node name="Board" type="Control" parent="City"]
 layout_mode = 1
-anchor_left = 0.233
-anchor_top = 0.281708
-anchor_right = 0.233
-anchor_bottom = 0.281708
-offset_left = -120.82
-offset_top = -123.931
-offset_right = 40.18
-offset_bottom = 41.069
-scale = Vector2(1.5, 1.5)
+anchor_left = 0.243519
+anchor_top = 0.276632
+anchor_right = 0.243519
+anchor_bottom = 0.276632
+offset_left = -80.5
+offset_top = -82.5
+offset_right = 80.5
+offset_bottom = 82.5
+grow_horizontal = 2
+grow_vertical = 2
 metadata/_edit_use_anchors_ = true
-metadata/_edit_group_ = true
 
 [node name="BoardTexture" type="TextureRect" parent="City/Board"]
 layout_mode = 1
@@ -62,14 +73,17 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -60.0
-offset_top = -60.0
-offset_right = 60.0
-offset_bottom = 60.0
+offset_left = -86.5
+offset_top = -84.5
+offset_right = 33.5
+offset_bottom = 35.5
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1.5, 1.5)
 texture = ExtResource("3_eqxln")
+expand_mode = 1
 stretch_mode = 2
+metadata/_edit_group_ = true
 
 [node name="BoardButton" type="TextureButton" parent="City/Board/BoardTexture"]
 layout_mode = 1
@@ -88,13 +102,13 @@ grow_vertical = 2
 [node name="BoardName" type="Label" parent="City/Board"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.522
-anchor_top = 0.139
-anchor_right = 0.522
-anchor_bottom = 0.139
-offset_left = -55.3753
+anchor_left = 0.552634
+anchor_top = -0.0468587
+anchor_right = 0.552634
+anchor_bottom = -0.0468587
+offset_left = -60.974
 offset_top = -28.2683
-offset_right = 55.5358
+offset_right = 61.026
 offset_bottom = 28.1067
 grow_horizontal = 2
 grow_vertical = 2
@@ -102,39 +116,42 @@ theme_override_colors/font_color = Color(0.937255, 1, 0.439216, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("4_7pman")
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 25
 text = "Доска
 объявлений"
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Train" type="Control" parent="City"]
 layout_mode = 1
-anchor_left = 0.488556
-anchor_top = 0.718134
-anchor_right = 0.488556
-anchor_bottom = 0.718134
-offset_left = -120.82
-offset_top = -123.931
-offset_right = 40.18
-offset_bottom = 41.069
-scale = Vector2(1.5, 1.5)
+anchor_left = 0.39563
+anchor_top = 0.715727
+anchor_right = 0.39563
+anchor_bottom = 0.715727
+offset_left = -80.64
+offset_top = -82.83
+offset_right = 80.36
+offset_bottom = 82.17
+grow_horizontal = 2
+grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 metadata/_edit_group_ = true
 
 [node name="TrainTexture" type="TextureRect" parent="City/Train"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -60.0
-offset_top = -60.0
-offset_right = 60.0
-offset_bottom = 60.0
+anchors_preset = -1
+anchor_left = 0.848
+anchor_top = 0.73
+anchor_right = 0.848
+anchor_bottom = 0.73
+offset_left = -116.028
+offset_top = -97.95
+offset_right = 3.97198
+offset_bottom = 22.05
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1.5, 1.5)
 texture = ExtResource("10_a2bf6")
 stretch_mode = 2
 
@@ -155,13 +172,13 @@ grow_vertical = 2
 [node name="TrainName" type="Label" parent="City/Train"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.522
-anchor_top = 0.139
-anchor_right = 0.522
-anchor_bottom = 0.139
+anchor_left = 0.853263
+anchor_top = 0.0978788
+anchor_right = 0.878447
+anchor_bottom = 0.0985958
 offset_left = -55.3753
-offset_top = -28.2683
-offset_right = 55.5358
+offset_top = -28.15
+offset_right = 59.57
 offset_bottom = 28.1067
 grow_horizontal = 2
 grow_vertical = 2
@@ -169,38 +186,40 @@ theme_override_colors/font_color = Color(0.937255, 1, 0.439216, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("4_7pman")
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 25
 text = "Тренировка"
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="Settings" type="Control" parent="City"]
 layout_mode = 1
-anchor_left = 0.788556
-anchor_top = 0.423747
-anchor_right = 0.788556
-anchor_bottom = 0.423747
-offset_left = -120.82
-offset_top = -123.931
-offset_right = 40.18
-offset_bottom = 41.069
-scale = Vector2(1.5, 1.5)
-metadata/_edit_use_anchors_ = true
+anchor_left = 0.673
+anchor_top = 0.363
+anchor_right = 0.673
+anchor_bottom = 0.363
+offset_left = -80.42
+offset_top = -82.899
+offset_right = 80.58
+offset_bottom = 82.101
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_group_ = true
 
 [node name="SettingsTexture" type="TextureRect" parent="City/Settings"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -76.0
-offset_top = -72.0
-offset_right = 76.0
-offset_bottom = 72.0
+anchors_preset = -1
+anchor_left = 0.736
+anchor_top = 0.718
+anchor_right = 0.736
+anchor_bottom = 0.718
+offset_left = -113.996
+offset_top = -107.97
+offset_right = 38.004
+offset_bottom = 36.03
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.8, 0.8)
+scale = Vector2(1.5, 1.5)
 texture = ExtResource("9_khixs")
 stretch_mode = 2
 
@@ -221,10 +240,10 @@ grow_vertical = 2
 [node name="SettingsName" type="Label" parent="City/Settings"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.452381
-anchor_top = 0.119192
-anchor_right = 0.452381
-anchor_bottom = 0.119192
+anchor_left = 0.717391
+anchor_top = 0.181818
+anchor_right = 0.717391
+anchor_bottom = 0.181818
 offset_left = -55.5
 offset_top = -19.0
 offset_right = 55.5
@@ -235,25 +254,17 @@ theme_override_colors/font_color = Color(0.937255, 1, 0.439216, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("4_7pman")
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 25
 text = "Настройки
 "
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Gap" type="Control" parent="."]
-layout_mode = 1
-anchor_right = 1.0
-anchor_bottom = 0.0208333
-grow_horizontal = 2
-metadata/_edit_use_anchors_ = true
-
 [node name="Profile" type="Control" parent="."]
 layout_mode = 1
-anchor_top = 0.0208333
 anchor_right = 1.0
-anchor_bottom = 0.145833
+anchor_bottom = 0.125
 grow_horizontal = 2
 metadata/_edit_use_anchors_ = true
 
@@ -378,6 +389,63 @@ text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="BoardWindow" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0203704
+anchor_top = 0.132292
+anchor_right = 0.97963
+anchor_bottom = 0.983333
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("11_tfl4e")
+metadata/_edit_use_anchors_ = true
+
+[node name="BoardScroll" type="ScrollContainer" parent="BoardWindow"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BoardContainer" type="FlowContainer" parent="BoardWindow/BoardScroll"]
+unique_name_in_owner = true
+layout_mode = 2
+alignment = 2
+
+[node name="CloseButton" type="TextureButton" parent="BoardWindow"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.919
+anchor_top = 0.035
+anchor_right = 0.919
+anchor_bottom = 0.035
+offset_left = -16.0422
+offset_top = -15.5953
+offset_right = 15.9578
+offset_bottom = 16.4047
+texture_normal = SubResource("GradientTexture2D_8pa6e")
+
+[node name="CrossTexture" type="TextureRect" parent="BoardWindow/CloseButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -12.0
+offset_top = -12.0
+offset_right = 12.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("13_1lmx6")
+expand_mode = 1
+
 [connection signal="pressed" from="City/Board/BoardTexture/BoardButton" to="." method="_on_board_button_pressed"]
 [connection signal="pressed" from="City/Train/TrainTexture/TrainButton" to="." method="_on_train_button_pressed"]
 [connection signal="pressed" from="City/Settings/SettingsTexture/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="sort_children" from="BoardWindow/BoardScroll/BoardContainer" to="." method="_on_container_sort_children"]
+[connection signal="pressed" from="BoardWindow/CloseButton" to="." method="_on_close_button_pressed"]

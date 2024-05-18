@@ -3,7 +3,6 @@ extends Control
 
 func _ready():
 	DataControl.load_data()
-	print(Time.get_date_string_from_system())
 
 
 func _on_timer_timeout():

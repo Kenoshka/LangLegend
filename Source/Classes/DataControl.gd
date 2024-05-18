@@ -8,9 +8,10 @@ enum {
 	PROFILE_CREATED,
 	TUTORIAL_ENDED,
 	START_DATE,
-	DAILY_DATE,
 	DIFFICULTY,
-	EXP
+	EXP,
+	DAILY_USUAL,
+	DAILY_BLITZ
 }
 
 # Возможно добавить счётчик Right_in_row, чтоб при 100 правильных ответах предлагать повысить уровень сложности.
@@ -21,9 +22,10 @@ var DATA = {
 	PROFILE_CREATED:false,
 	TUTORIAL_ENDED:false,
 	START_DATE:Time.get_date_string_from_system(),
-	DAILY_DATE: "2020-12-12",
 	DIFFICULTY:0,
-	EXP: 100
+	EXP: 100,
+	DAILY_USUAL: "2020-12-12",
+	DAILY_BLITZ: "2020-12-12"
 }
 
 
@@ -36,8 +38,8 @@ func load_data():
 			var LOADED_DATA = json_parser.data
 			for i in LOADED_DATA.keys():
 				DATA[int(i)] = LOADED_DATA[i]
-			DATA[AVATAR] = clamp(DATA[AVATAR], 0, 3)
-			DATA[DIFFICULTY] = clamp(DATA[DIFFICULTY], 0, 2)
+			DATA[AVATAR] = int(clamp(DATA[AVATAR], 0, 3))
+			DATA[DIFFICULTY] = int(clamp(DATA[DIFFICULTY], 0, 2))
 		else:
 			print(err) # TODO: Обработку ошибок в игре
 	else:
@@ -49,3 +51,8 @@ func save_data():
 	var data_string = json_parser.stringify(DATA)
 	file.store_string(data_string)
 	file = null
+
+
+func delete_data():
+	if FileAccess.file_exists(FILE_PATH):
+		DirAccess.remove_absolute(FILE_PATH)
