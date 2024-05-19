@@ -16,10 +16,8 @@ func _ready():
 	var diff = DataControl.DATA[DataControl.DIFFICULTY]
 	match diff:
 		0:
-			$SettingsContainer/ButtonEasy.button_pressed = true
-		1:
 			$SettingsContainer/ButtonMedium.button_pressed = true
-		2:
+		1:
 			$SettingsContainer/ButtonHard.button_pressed = true
 
 

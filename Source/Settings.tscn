@@ -12,14 +12,14 @@ gradient = SubResource("Gradient_envps")
 height = 30
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w8jck"]
-bg_color = Color(0.215686, 0.215686, 0.215686, 1)
+bg_color = Color(0.364706, 0.364706, 0.364706, 1)
 corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ris6y"]
-bg_color = Color(0.592157, 0.592157, 0.592157, 1)
+bg_color = Color(0.411765, 0.411765, 0.411765, 1)
 corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
@@ -119,21 +119,6 @@ horizontal_alignment = 1
 layout_mode = 2
 texture = SubResource("GradientTexture2D_dmx7u")
 
-[node name="ButtonEasy" type="Button" parent="SettingsContainer"]
-custom_minimum_size = Vector2(150, 60)
-layout_mode = 2
-size_flags_horizontal = 6
-theme_override_fonts/font = ExtResource("2_vxdow")
-theme_override_font_sizes/font_size = 25
-theme_override_styles/normal = SubResource("StyleBoxFlat_w8jck")
-theme_override_styles/hover = SubResource("StyleBoxFlat_ris6y")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_aj143")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_553gk")
-toggle_mode = true
-button_group = SubResource("ButtonGroup_nfvn5")
-text = "Лёгкий"
-metadata/_edit_use_anchors_ = true
-
 [node name="ButtonMedium" type="Button" parent="SettingsContainer"]
 custom_minimum_size = Vector2(150, 60)
 layout_mode = 2
@@ -146,7 +131,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_aj143")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_553gk")
 toggle_mode = true
 button_group = SubResource("ButtonGroup_nfvn5")
-text = "Средний"
+text = "Обычный"
 metadata/_edit_use_anchors_ = true
 
 [node name="ButtonHard" type="Button" parent="SettingsContainer"]
