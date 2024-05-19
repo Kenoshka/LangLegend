@@ -465,8 +465,71 @@ func insert_data():
 		"TaskTopic":2,
 		"TaskType":1,
 		"TaskQuestion":"Подберите синоним",
-		"TaskText":"",
-		"TaskAnswers":"",
+		"TaskText":"to obtain",
+		"TaskAnswers":"to skip_to get",
+		"TaskRightAnswer":"1"}
+	)
+	db.insert_row("Tasks", {
+		"TaskDiff":0,
+		"TaskTopic":2,
+		"TaskType":1,
+		"TaskQuestion":"Подберите синоним",
+		"TaskText":"to deceive",
+		"TaskAnswers":"to persuade_to confuse",
+		"TaskRightAnswer":"1"}
+	)
+	db.insert_row("Tasks", {
+		"TaskDiff":0,
+		"TaskTopic":2,
+		"TaskType":1,
+		"TaskQuestion":"Подберите синоним",
+		"TaskText":"efforts",
+		"TaskAnswers":"complaints_remarks_attempts_orders",
+		"TaskRightAnswer":"2"}
+	)
+	db.insert_row("Tasks", {
+		"TaskDiff":0,
+		"TaskTopic":2,
+		"TaskType":1,
+		"TaskQuestion":"Подберите синоним",
+		"TaskText":"to conceal",
+		"TaskAnswers":"to hide_to count_to reveal_to send",
+		"TaskRightAnswer":"0"}
+	)
+	db.insert_row("Tasks", {
+		"TaskDiff":0,
+		"TaskTopic":2,
+		"TaskType":1,
+		"TaskQuestion":"Подберите синоним",
+		"TaskText":"annual",
+		"TaskAnswers":"every day_every week_every month_every year",
+		"TaskRightAnswer":"3"}
+	)
+	db.insert_row("Tasks", {
+		"TaskDiff":0,
+		"TaskTopic":2,
+		"TaskType":1,
+		"TaskQuestion":"Подберите синоним",
+		"TaskText":"to convince",
+		"TaskAnswers":"to regret_to persuade",
+		"TaskRightAnswer":"1"}
+	)
+	db.insert_row("Tasks", {
+		"TaskDiff":0,
+		"TaskTopic":2,
+		"TaskType":1,
+		"TaskQuestion":"Подберите синоним",
+		"TaskText":"to earn",
+		"TaskAnswers":"to gain_to grow",
+		"TaskRightAnswer":"0"}
+	)
+	db.insert_row("Tasks", {
+		"TaskDiff":0,
+		"TaskTopic":2,
+		"TaskType":1,
+		"TaskQuestion":"Подберите синоним",
+		"TaskText":"wealthy",
+		"TaskAnswers":"insane_rich",
 		"TaskRightAnswer":""}
 	)
 	db.insert_row("Tasks", {
@@ -474,126 +537,63 @@ func insert_data():
 		"TaskTopic":2,
 		"TaskType":1,
 		"TaskQuestion":"Подберите синоним",
-		"TaskText":"",
-		"TaskAnswers":"",
-		"TaskRightAnswer":""}
+		"TaskText":"filthy",
+		"TaskAnswers":"messy_funny",
+		"TaskRightAnswer":"0"}
 	)
 	db.insert_row("Tasks", {
 		"TaskDiff":0,
 		"TaskTopic":2,
 		"TaskType":1,
 		"TaskQuestion":"Подберите синоним",
-		"TaskText":"",
-		"TaskAnswers":"",
-		"TaskRightAnswer":""}
+		"TaskText":"vanished",
+		"TaskAnswers":"cleaned_disappeared_swept_cleared",
+		"TaskRightAnswer":"1"}
 	)
 	db.insert_row("Tasks", {
 		"TaskDiff":0,
 		"TaskTopic":2,
 		"TaskType":1,
 		"TaskQuestion":"Подберите синоним",
-		"TaskText":"",
-		"TaskAnswers":"",
-		"TaskRightAnswer":""}
+		"TaskText":"leap",
+		"TaskAnswers":"run_jump",
+		"TaskRightAnswer":"1"}
 	)
 	db.insert_row("Tasks", {
 		"TaskDiff":0,
 		"TaskTopic":2,
 		"TaskType":1,
 		"TaskQuestion":"Подберите синоним",
-		"TaskText":"",
-		"TaskAnswers":"",
-		"TaskRightAnswer":""}
+		"TaskText":"precise",
+		"TaskAnswers":"terrible_amazing_accurate_dear",
+		"TaskRightAnswer":"2"}
 	)
 	db.insert_row("Tasks", {
 		"TaskDiff":0,
 		"TaskTopic":2,
 		"TaskType":1,
 		"TaskQuestion":"Подберите синоним",
-		"TaskText":"",
-		"TaskAnswers":"",
-		"TaskRightAnswer":""}
+		"TaskText":"enormous",
+		"TaskAnswers":"annoying_huge",
+		"TaskRightAnswer":"1"}
 	)
 	db.insert_row("Tasks", {
 		"TaskDiff":0,
 		"TaskTopic":2,
 		"TaskType":1,
 		"TaskQuestion":"Подберите синоним",
-		"TaskText":"",
-		"TaskAnswers":"",
-		"TaskRightAnswer":""}
+		"TaskText":"neat",
+		"TaskAnswers":"careful_careless",
+		"TaskRightAnswer":"0"}
 	)
 	db.insert_row("Tasks", {
 		"TaskDiff":0,
 		"TaskTopic":2,
 		"TaskType":1,
 		"TaskQuestion":"Подберите синоним",
-		"TaskText":"",
-		"TaskAnswers":"",
-		"TaskRightAnswer":""}
-	)
-	db.insert_row("Tasks", {
-		"TaskDiff":0,
-		"TaskTopic":2,
-		"TaskType":1,
-		"TaskQuestion":"Подберите синоним",
-		"TaskText":"",
-		"TaskAnswers":"",
-		"TaskRightAnswer":""}
-	)
-	db.insert_row("Tasks", {
-		"TaskDiff":0,
-		"TaskTopic":2,
-		"TaskType":1,
-		"TaskQuestion":"Подберите синоним",
-		"TaskText":"",
-		"TaskAnswers":"",
-		"TaskRightAnswer":""}
-	)
-	db.insert_row("Tasks", {
-		"TaskDiff":0,
-		"TaskTopic":2,
-		"TaskType":1,
-		"TaskQuestion":"Подберите синоним",
-		"TaskText":"",
-		"TaskAnswers":"",
-		"TaskRightAnswer":""}
-	)
-	db.insert_row("Tasks", {
-		"TaskDiff":0,
-		"TaskTopic":2,
-		"TaskType":1,
-		"TaskQuestion":"Подберите синоним",
-		"TaskText":"",
-		"TaskAnswers":"",
-		"TaskRightAnswer":""}
-	)
-	db.insert_row("Tasks", {
-		"TaskDiff":0,
-		"TaskTopic":2,
-		"TaskType":1,
-		"TaskQuestion":"Подберите синоним",
-		"TaskText":"",
-		"TaskAnswers":"",
-		"TaskRightAnswer":""}
-	)
-	db.insert_row("Tasks", {
-		"TaskDiff":0,
-		"TaskTopic":2,
-		"TaskType":1,
-		"TaskQuestion":"Подберите синоним",
-		"TaskText":"",
-		"TaskAnswers":"",
-		"TaskRightAnswer":""}
-	)
-	db.insert_row("Tasks", {
-		"TaskDiff":0,
-		"TaskTopic":2,
-		"TaskType":1,
-		"TaskQuestion":"Подберите синоним",
-		"TaskText":"",
-		"TaskAnswers":"",
-		"TaskRightAnswer":""}
+		"TaskText":"grateful",
+		"TaskAnswers":"scared_thankful_graceful_rude",
+		"TaskRightAnswer":"1"}
 	)
 
 	db.insert_row("Tasks", {
@@ -602,7 +602,7 @@ func insert_data():
 		"TaskType":1,
 		"TaskQuestion":"Подберите синоним",
 		"TaskText":"to astonish",
-		"TaskAnswers":"to surprise_to pretend",
+		"TaskAnswers":"to surprise_to pretend_to love_to disturb",
 		"TaskRightAnswer":"0"}
 	)
 	db.insert_row("Tasks", {
@@ -610,161 +610,161 @@ func insert_data():
 		"TaskTopic":2,
 		"TaskType":1,
 		"TaskQuestion":"Подберите синоним",
-		"TaskText":"",
-		"TaskAnswers":"",
-		"TaskRightAnswer":""}
+		"TaskText":"to weep",
+		"TaskAnswers":"to whisper_to cry_to admire_to crawl",
+		"TaskRightAnswer":"1"}
 	)
 	db.insert_row("Tasks", {
 		"TaskDiff":1,
 		"TaskTopic":2,
 		"TaskType":1,
 		"TaskQuestion":"Подберите синоним",
-		"TaskText":"",
-		"TaskAnswers":"",
-		"TaskRightAnswer":""}
+		"TaskText":"sincere",
+		"TaskAnswers":"useful_obvious_harmful_frank",
+		"TaskRightAnswer":"3"}
 	)
 	db.insert_row("Tasks", {
 		"TaskDiff":1,
 		"TaskTopic":2,
 		"TaskType":1,
 		"TaskQuestion":"Подберите синоним",
-		"TaskText":"",
-		"TaskAnswers":"",
-		"TaskRightAnswer":""}
+		"TaskText":"instantly",
+		"TaskAnswers":"obviously_immediately_frequently_mainly",
+		"TaskRightAnswer":"1"}
 	)
 	db.insert_row("Tasks", {
 		"TaskDiff":1,
 		"TaskTopic":2,
 		"TaskType":1,
 		"TaskQuestion":"Подберите синоним",
-		"TaskText":"",
-		"TaskAnswers":"",
-		"TaskRightAnswer":""}
+		"TaskText":"arrogant",
+		"TaskAnswers":"kind_official_self-conscious_egoistical",
+		"TaskRightAnswer":"3"}
 	)
 	db.insert_row("Tasks", {
 		"TaskDiff":1,
 		"TaskTopic":2,
 		"TaskType":1,
 		"TaskQuestion":"Подберите синоним",
-		"TaskText":"",
-		"TaskAnswers":"",
-		"TaskRightAnswer":""}
+		"TaskText":"sullen",
+		"TaskAnswers":"gloomy_carefree_tired_lucky",
+		"TaskRightAnswer":"0"}
 	)
 	db.insert_row("Tasks", {
 		"TaskDiff":1,
 		"TaskTopic":2,
 		"TaskType":1,
 		"TaskQuestion":"Подберите синоним",
-		"TaskText":"",
-		"TaskAnswers":"",
-		"TaskRightAnswer":""}
+		"TaskText":"regarding",
+		"TaskAnswers":"stating_pointing_concerning_reading",
+		"TaskRightAnswer":"2"}
 	)
 	db.insert_row("Tasks", {
 		"TaskDiff":1,
 		"TaskTopic":2,
 		"TaskType":1,
 		"TaskQuestion":"Подберите синоним",
-		"TaskText":"",
-		"TaskAnswers":"",
-		"TaskRightAnswer":""}
+		"TaskText":"submitted",
+		"TaskAnswers":"chosen_presented_signed_fulfilled",
+		"TaskRightAnswer":"1"}
 	)
 	db.insert_row("Tasks", {
 		"TaskDiff":1,
 		"TaskTopic":2,
 		"TaskType":1,
 		"TaskQuestion":"Подберите синоним",
-		"TaskText":"",
-		"TaskAnswers":"",
-		"TaskRightAnswer":""}
+		"TaskText":"compulsory",
+		"TaskAnswers":"preferable_rapid_impossible_obligatory",
+		"TaskRightAnswer":"3"}
 	)
 	db.insert_row("Tasks", {
 		"TaskDiff":1,
 		"TaskTopic":2,
 		"TaskType":1,
 		"TaskQuestion":"Подберите синоним",
-		"TaskText":"",
-		"TaskAnswers":"",
-		"TaskRightAnswer":""}
+		"TaskText":"substituted",
+		"TaskAnswers":"received_broke_caught_changed",
+		"TaskRightAnswer":"3"}
 	)
 	db.insert_row("Tasks", {
 		"TaskDiff":1,
 		"TaskTopic":2,
 		"TaskType":1,
 		"TaskQuestion":"Подберите синоним",
-		"TaskText":"",
-		"TaskAnswers":"",
-		"TaskRightAnswer":""}
+		"TaskText":"assent",
+		"TaskAnswers":"consent_absence_help_wish",
+		"TaskRightAnswer":"0"}
 	)
 	db.insert_row("Tasks", {
 		"TaskDiff":1,
 		"TaskTopic":2,
 		"TaskType":1,
 		"TaskQuestion":"Подберите синоним",
-		"TaskText":"",
-		"TaskAnswers":"",
-		"TaskRightAnswer":""}
+		"TaskText":"dedicated",
+		"TaskAnswers":"separated_loyal_terrific_irritated",
+		"TaskRightAnswer":"1"}
 	)
 	db.insert_row("Tasks", {
 		"TaskDiff":1,
 		"TaskTopic":2,
 		"TaskType":1,
 		"TaskQuestion":"Подберите синоним",
-		"TaskText":"",
-		"TaskAnswers":"",
-		"TaskRightAnswer":""}
+		"TaskText":"quantity",
+		"TaskAnswers":"qualification_capacity_amount_quality",
+		"TaskRightAnswer":"2"}
 	)
 	db.insert_row("Tasks", {
 		"TaskDiff":1,
 		"TaskTopic":2,
 		"TaskType":1,
 		"TaskQuestion":"Подберите синоним",
-		"TaskText":"",
-		"TaskAnswers":"",
-		"TaskRightAnswer":""}
+		"TaskText":"abhorrent",
+		"TaskAnswers":"horrifying_disgusting_caring_thin",
+		"TaskRightAnswer":"1"}
 	)
 	db.insert_row("Tasks", {
 		"TaskDiff":1,
 		"TaskTopic":2,
 		"TaskType":1,
 		"TaskQuestion":"Подберите синоним",
-		"TaskText":"",
-		"TaskAnswers":"",
-		"TaskRightAnswer":""}
+		"TaskText":"alluring",
+		"TaskAnswers":"nervous_calming_attractive_runny",
+		"TaskRightAnswer":"2"}
 	)
 	db.insert_row("Tasks", {
 		"TaskDiff":1,
 		"TaskTopic":2,
 		"TaskType":1,
 		"TaskQuestion":"Подберите синоним",
-		"TaskText":"",
-		"TaskAnswers":"",
-		"TaskRightAnswer":""}
+		"TaskText":"soothing",
+		"TaskAnswers":"swimming_abundant_calming_fussing",
+		"TaskRightAnswer":"3"}
 	)
 	db.insert_row("Tasks", {
 		"TaskDiff":1,
 		"TaskTopic":2,
 		"TaskType":1,
 		"TaskQuestion":"Подберите синоним",
-		"TaskText":"",
-		"TaskAnswers":"",
-		"TaskRightAnswer":""}
+		"TaskText":"hilarious",
+		"TaskAnswers":"tiny_tremendous_sweet_amusing",
+		"TaskRightAnswer":"3"}
 	)
 	db.insert_row("Tasks", {
 		"TaskDiff":1,
 		"TaskTopic":2,
 		"TaskType":1,
 		"TaskQuestion":"Подберите синоним",
-		"TaskText":"",
-		"TaskAnswers":"",
-		"TaskRightAnswer":""}
+		"TaskText":"possession",
+		"TaskAnswers":"ownership_obsession_regeneration_attraction",
+		"TaskRightAnswer":"0"}
 	)
 	db.insert_row("Tasks", {
 		"TaskDiff":1,
 		"TaskTopic":2,
 		"TaskType":1,
 		"TaskQuestion":"Подберите синоним",
-		"TaskText":"",
-		"TaskAnswers":"",
-		"TaskRightAnswer":""}
+		"TaskText":"soggy",
+		"TaskAnswers":"hot_disgusting_wet_blank",
+		"TaskRightAnswer":"2"}
 	)
 
