@@ -23,6 +23,7 @@ func _ready():
 
 
 func _on_back_button_pressed():
+	await DataControl.save_data()
 	var tw = create_tween()
 	tw.set_parallel()
 	tw.tween_property(self, "modulate:a", 0.0, 0.5)
@@ -42,3 +43,7 @@ func _on_confirmation_dialog_canceled():
 func _on_confirmation_dialog_confirmed():
 	await DataControl.delete_data()
 	get_tree().quit()
+
+
+func set_diff(diff):
+	DataControl.DATA[DataControl.DIFFICULTY] = diff

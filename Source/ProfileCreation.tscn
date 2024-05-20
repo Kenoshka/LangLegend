@@ -7,33 +7,33 @@
 [ext_resource type="Texture2D" uid="uid://dw5wa58m28nsr" path="res://Assets/Characters/3.png" id="5_5rw1w"]
 [ext_resource type="Texture2D" uid="uid://bln13vpkdxke7" path="res://Assets/Characters/4.png" id="6_cn4yv"]
 
-[sub_resource type="Gradient" id="Gradient_tvoug"]
+[sub_resource type="Gradient" id="Gradient_0reym"]
 offsets = PackedFloat32Array(0)
 colors = PackedColorArray(0, 0, 0, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_5stsr"]
-gradient = SubResource("Gradient_tvoug")
+gradient = SubResource("Gradient_0reym")
 height = 30
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5c3fr"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1vnyu"]
 
-[sub_resource type="Gradient" id="Gradient_0r8m7"]
+[sub_resource type="Gradient" id="Gradient_hx7b3"]
 offsets = PackedFloat32Array(0)
 colors = PackedColorArray(0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_xenak"]
-gradient = SubResource("Gradient_0r8m7")
+gradient = SubResource("Gradient_hx7b3")
 width = 1
 height = 2
 
-[sub_resource type="Gradient" id="Gradient_abedp"]
+[sub_resource type="Gradient" id="Gradient_dyhj2"]
 offsets = PackedFloat32Array(0)
 colors = PackedColorArray(0, 0, 0, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_hs8dc"]
-gradient = SubResource("Gradient_abedp")
+gradient = SubResource("Gradient_dyhj2")
 height = 40
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ntv77"]
@@ -172,18 +172,22 @@ columns = 2
 
 [node name="1" type="TextureButton" parent="Char/CharBox/GridContainer"]
 layout_mode = 2
+disabled = true
 texture_normal = ExtResource("3_mmuly")
 
 [node name="2" type="TextureButton" parent="Char/CharBox/GridContainer"]
 layout_mode = 2
+disabled = true
 texture_normal = ExtResource("4_y63f0")
 
 [node name="3" type="TextureButton" parent="Char/CharBox/GridContainer"]
 layout_mode = 2
+disabled = true
 texture_normal = ExtResource("5_5rw1w")
 
 [node name="4" type="TextureButton" parent="Char/CharBox/GridContainer"]
 layout_mode = 2
+disabled = true
 texture_normal = ExtResource("6_cn4yv")
 
 [node name="Diff" type="Control" parent="."]
@@ -210,6 +214,13 @@ theme_override_fonts/font = ExtResource("1_stoso")
 theme_override_font_sizes/font_size = 30
 text = "Выберите уровень сложности"
 
+[node name="DiffLabel2" type="Label" parent="Diff/DiffBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.341176, 0.341176, 0.341176, 1)
+theme_override_fonts/font = ExtResource("1_stoso")
+theme_override_font_sizes/font_size = 25
+text = "(вы сможете изменить его в настройках)"
+
 [node name="Gap" type="TextureRect" parent="Diff/DiffBox"]
 layout_mode = 2
 texture = SubResource("GradientTexture2D_5stsr")
@@ -227,6 +238,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_ntv77")
 theme_override_styles/hover = SubResource("StyleBoxFlat_achx8")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_fpsf1")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_ahc4l")
+disabled = true
 text = "Обычный"
 metadata/_edit_use_anchors_ = true
 
@@ -240,6 +252,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_ntv77")
 theme_override_styles/hover = SubResource("StyleBoxFlat_achx8")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_fpsf1")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_ahc4l")
+disabled = true
 text = "Сложный
 "
 metadata/_edit_use_anchors_ = true

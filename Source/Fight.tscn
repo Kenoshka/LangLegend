@@ -1,4 +1,106 @@
-[gd_scene format=3 uid="uid://ciefkto6njlga"]
+[gd_scene load_steps=18 format=3 uid="uid://ciefkto6njlga"]
+
+[ext_resource type="Script" path="res://Source/Fight.gd" id="1_3wh77"]
+[ext_resource type="Texture2D" uid="uid://cguxeq077fxe4" path="res://Assets/UI/tileSand.png" id="2_j2pku"]
+[ext_resource type="Texture2D" uid="uid://dnvvp40fl2gqy" path="res://Assets/Characters/1.png" id="3_lqp0j"]
+[ext_resource type="Texture2D" uid="uid://mx482r8d1jhy" path="res://Assets/Creatures/3.png" id="3_n02hf"]
+[ext_resource type="Texture2D" uid="uid://chw5yrhtn2ww0" path="res://Assets/UI/red_button.png" id="5_kayfx"]
+[ext_resource type="Texture2D" uid="uid://ctj8g3oxgptmw" path="res://Assets/UI/blue_button.png" id="6_ga1hq"]
+[ext_resource type="Texture2D" uid="uid://dke2w2l5cajbo" path="res://Assets/UI/red_button_press.png" id="6_ouckl"]
+[ext_resource type="FontFile" uid="uid://cibh2hon2txu4" path="res://Assets/Technical/Perun.ttf" id="7_3jj7v"]
+[ext_resource type="Texture2D" uid="uid://detw6b3imeut1" path="res://Assets/UI/blue_button_press.png" id="7_abbvs"]
+
+[sub_resource type="Animation" id="Animation_lcuv2"]
+resource_name = "Attack"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player/PlayerTexture:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(2, 1, 1),
+"update": 0,
+"values": [Vector2(33, 0), Vector2(33, -300), Vector2(33, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_28h8m"]
+resource_name = "Empty"
+
+[sub_resource type="Animation" id="Animation_ujv8r"]
+resource_name = "Evade"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player/PlayerTexture:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(0.5, 1, 1),
+"update": 0,
+"values": [Vector2(33, 0), Vector2(300, 0), Vector2(33, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_i6bav"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player/PlayerTexture:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(33, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_e02gf"]
+_data = {
+"Attack": SubResource("Animation_lcuv2"),
+"Empty": SubResource("Animation_28h8m"),
+"Evade": SubResource("Animation_ujv8r"),
+"RESET": SubResource("Animation_i6bav")
+}
+
+[sub_resource type="Animation" id="Animation_10hga"]
+resource_name = "Attack"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Enemy/EnemyTexture:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(2, 1, 1),
+"update": 0,
+"values": [Vector2(0, -4.45001), Vector2(0, 300), Vector2(0, -4.45001)]
+}
+
+[sub_resource type="Animation" id="Animation_c065g"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Enemy/EnemyTexture:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -4.45001)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nk1m4"]
+_data = {
+"Attack": SubResource("Animation_10hga"),
+"RESET": SubResource("Animation_c065g")
+}
 
 [node name="Fight" type="Control"]
 layout_mode = 3
@@ -7,3 +109,220 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_3wh77")
+
+[node name="BG" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_j2pku")
+stretch_mode = 1
+
+[node name="Enemy" type="Control" parent="."]
+layout_mode = 1
+anchor_left = 0.5
+anchor_top = 0.312
+anchor_right = 0.5
+anchor_bottom = 0.312
+offset_left = -150.0
+offset_top = -219.52
+offset_right = 150.0
+offset_bottom = 130.48
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="EnemyTexture" type="TextureRect" parent="Enemy"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_top = -4.45001
+offset_right = 300.0
+offset_bottom = 350.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("3_n02hf")
+expand_mode = 5
+stretch_mode = 4
+
+[node name="EnemyHP" type="HBoxContainer" parent="Enemy"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+
+[node name="Player" type="Control" parent="."]
+layout_mode = 1
+anchor_left = 0.5
+anchor_top = 0.703
+anchor_right = 0.5
+anchor_bottom = 0.703
+offset_left = -100.0
+offset_top = -124.88
+offset_right = 100.0
+offset_bottom = 125.12
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PlayerTexture" type="TextureRect" parent="Player"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 33.0
+offset_right = 167.0
+offset_bottom = 212.0
+grow_horizontal = 2
+texture = ExtResource("3_lqp0j")
+
+[node name="PlayerHP" type="HBoxContainer" parent="Player"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="ButtonsContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.84375
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="AttackButton" type="TextureButton" parent="ButtonsContainer"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("5_kayfx")
+texture_pressed = ExtResource("6_ouckl")
+stretch_mode = 0
+
+[node name="AttackLabel" type="Label" parent="ButtonsContainer/AttackButton"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.315
+anchor_right = 0.5
+anchor_bottom = 0.315
+offset_left = -63.5
+offset_top = -17.5
+offset_right = 63.5
+offset_bottom = 9.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("7_3jj7v")
+theme_override_font_sizes/font_size = 26
+text = "Атаковать"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AttackTopic" type="Label" parent="ButtonsContainer/AttackButton"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.575
+anchor_right = 0.5
+anchor_bottom = 0.575
+offset_left = -58.5
+offset_top = -7.5
+offset_right = 58.5
+offset_bottom = 17.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_fonts/font = ExtResource("7_3jj7v")
+theme_override_font_sizes/font_size = 20
+text = "Атаковать"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="DodgeButton" type="TextureButton" parent="ButtonsContainer"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("6_ga1hq")
+texture_pressed = ExtResource("7_abbvs")
+stretch_mode = 0
+
+[node name="DodgeLabel" type="Label" parent="ButtonsContainer/DodgeButton"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.315
+anchor_right = 0.5
+anchor_bottom = 0.315
+offset_left = -69.5
+offset_top = -17.5
+offset_right = 69.5
+offset_bottom = 9.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("7_3jj7v")
+theme_override_font_sizes/font_size = 26
+text = "Уклониться"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DodgeTopic" type="Label" parent="ButtonsContainer/DodgeButton"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.575
+anchor_right = 0.5
+anchor_bottom = 0.575
+offset_left = -64.0
+offset_top = -7.5
+offset_right = 64.0
+offset_bottom = 17.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_fonts/font = ExtResource("7_3jj7v")
+theme_override_font_sizes/font_size = 20
+text = "Уклониться"
+horizontal_alignment = 1
+vertical_alignment = 2
+autowrap_mode = 3
+
+[node name="PlayerAnimation" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_e02gf")
+}
+
+[node name="EnemyAnimation" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_nk1m4")
+}
+
+[node name="BlitzTimer" type="Timer" parent="."]
+wait_time = 60.0
+one_shot = true
+
+[connection signal="pressed" from="ButtonsContainer/AttackButton" to="." method="_on_attack_button_pressed"]
+[connection signal="pressed" from="ButtonsContainer/DodgeButton" to="." method="_on_dodge_button_pressed"]
+[connection signal="timeout" from="BlitzTimer" to="." method="_on_blitz_timer_timeout"]

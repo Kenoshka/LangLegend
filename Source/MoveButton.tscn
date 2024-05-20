@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dqa87v11ltauc"]
+
+[ext_resource type="Script" path="res://Source/MoveButton.gd" id="1_8ucst"]
+
+[node name="MoveButton" type="TextureButton"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_8ucst")

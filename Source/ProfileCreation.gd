@@ -44,6 +44,9 @@ func _on_next_button_pressed():
 	tw_two.set_parallel()
 	tw_two.tween_property($Char, "position", goal_position, 1).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
 	tw_two.tween_property($Char, "modulate:a", 1.0, 1)
+	await tw_two.finished
+	for butt in $Char/CharBox/GridContainer.get_children():
+		butt.disabled = false
 
 
 func char_chosen(char_num):
@@ -58,7 +61,8 @@ func char_chosen(char_num):
 	tw_two.set_parallel()
 	tw_two.tween_property($Diff, "position", goal_position, 1).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
 	tw_two.tween_property($Diff, "modulate:a", 1.0, 1)
-
+	for butt in $Diff/DiffBox/GridContainer.get_children():
+		butt.disabled = false
 
 func diff_chosen(diff_num):
 	diff = diff_num

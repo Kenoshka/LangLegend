@@ -13,9 +13,14 @@ var ICONS = [
 ]
 
 
+var IS_DAILY = true
+var IS_TRAIN = true
+
+var TYPE_CHOSEN = USUAL
+
+
 enum {
 	USUAL,
-	DAILY,
 	BLITZ
 }
 
@@ -25,6 +30,6 @@ enum INFO {
 }
 
 var DATA = {
-	DAILY: ["Ежедневное задание", sword_icon],
-	BLITZ: ["Блиц", fire_icon]
+	USUAL: ["Ежедневное задание", sword_icon],
+	BLITZ: ["Блитц 15", fire_icon]
 }

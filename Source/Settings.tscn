@@ -212,6 +212,8 @@ dialog_text = "Вы уверены, что хотите сбросить фай�
 dialog_autowrap = true
 cancel_button_text = "Отмена"
 
+[connection signal="pressed" from="SettingsContainer/ButtonMedium" to="." method="set_diff" binds= [0]]
+[connection signal="pressed" from="SettingsContainer/ButtonHard" to="." method="set_diff" binds= [1]]
 [connection signal="pressed" from="SettingsContainer/ButtonReset" to="." method="_on_button_reset_pressed"]
 [connection signal="pressed" from="SettingsContainer/BackButton" to="." method="_on_back_button_pressed"]
 [connection signal="canceled" from="ConfirmationDialog" to="." method="_on_confirmation_dialog_canceled"]

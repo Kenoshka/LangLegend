@@ -2,6 +2,7 @@ extends Control
 
 
 func _ready():
+	randomize()
 	DataControl.load_data()
 
 

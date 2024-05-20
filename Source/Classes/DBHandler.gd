@@ -74,6 +74,10 @@ func database_setup():
 	db.create_table("Tasks", Tasks)
 
 	await insert_data()
+	for i in range(1, 5):
+		for q in range(0, 2):
+			db.query_with_bindings("SELECT * FROM Tasks where TaskTopic = ? and TaskDiff = ?", [i, q])
+			print(db.query_result.size())
 	print(db.error_message)
 	db.export_to_json("user://EnglishDatabaseExport")
 
@@ -88,6 +92,7 @@ func insert_data():
 	db.insert_row("Topics", {"TopicName":"Синонимы"}) # 2
 	db.insert_row("Topics", {"TopicName":"Построение предложений"}) # 3
 	db.insert_row("Topics", {"TopicName":"Грамматика"}) # 4
+
 
 	db.insert_row("Tasks", {
 		"TaskDiff":0,
@@ -530,7 +535,7 @@ func insert_data():
 		"TaskQuestion":"Подберите синоним",
 		"TaskText":"wealthy",
 		"TaskAnswers":"insane_rich",
-		"TaskRightAnswer":""}
+		"TaskRightAnswer":"1"}
 	)
 	db.insert_row("Tasks", {
 		"TaskDiff":0,
@@ -766,5 +771,655 @@ func insert_data():
 		"TaskText":"soggy",
 		"TaskAnswers":"hot_disgusting_wet_blank",
 		"TaskRightAnswer":"2"}
+	)
+
+	db.insert_row("Tasks", {
+		"TaskDiff":0,
+		"TaskTopic":1,
+		"TaskType":1,
+		"TaskQuestion":"Закончите предложение с фразовым глаголом",
+		"TaskText":"He can’t ___ his mind about what to do next.",
+		"TaskAnswers":"make up_make out_make in_make with",
+		"TaskRightAnswer":"0"}
+	)
+	db.insert_row("Tasks", {
+		"TaskDiff":0,
+		"TaskTopic":1,
+		"TaskType":1,
+		"TaskQuestion":"Закончите предложение с фразовым глаголом",
+		"TaskText":"Our manager ___ the idea that we may go to Caribbean on holidays.",
+		"TaskAnswers":"put forward_put off_put in_put up",
+		"TaskRightAnswer":"0"}
+	)
+	db.insert_row("Tasks", {
+		"TaskDiff":0,
+		"TaskTopic":1,
+		"TaskType":1,
+		"TaskQuestion":"Закончите предложение с фразовым глаголом",
+		"TaskText":"He will work as a janitor until better job ___.",
+		"TaskAnswers":"turns up_turns in_turns off_turns away",
+		"TaskRightAnswer":"0"}
+	)
+	db.insert_row("Tasks", {
+		"TaskDiff":0,
+		"TaskTopic":1,
+		"TaskType":1,
+		"TaskQuestion":"Закончите предложение с фразовым глаголом",
+		"TaskText":"As they ___ for their picnic, it started to rain.",
+		"TaskAnswers":"set out_set off_set up_set in",
+		"TaskRightAnswer":"0"}
+	)
+	db.insert_row("Tasks", {
+		"TaskDiff":0,
+		"TaskTopic":1,
+		"TaskType":1,
+		"TaskQuestion":"Закончите предложение с фразовым глаголом",
+		"TaskText":"I cannot ___ his proposal. I have already promised to go out with him.",
+		"TaskAnswers":"turn up_turn down_turn away_turn out",
+		"TaskRightAnswer":"1"}
+	)
+	db.insert_row("Tasks", {
+		"TaskDiff":0,
+		"TaskTopic":1,
+		"TaskType":1,
+		"TaskQuestion":"Закончите предложение с фразовым глаголом",
+		"TaskText":"There was nothing I could do to calm the child down, it ___ crying.",
+		"TaskAnswers":"kept on_kept up_kept away_kept off",
+		"TaskRightAnswer":"0"}
+	)
+	db.insert_row("Tasks", {
+		"TaskDiff":0,
+		"TaskTopic":1,
+		"TaskType":1,
+		"TaskQuestion":"Закончите предложение с фразовым глаголом",
+		"TaskText":"I waited for an hour but nobody ___.",
+		"TaskAnswers":"turned in_turned out_turned up_turned down",
+		"TaskRightAnswer":"2"}
+	)
+	db.insert_row("Tasks", {
+		"TaskDiff":0,
+		"TaskTopic":1,
+		"TaskType":1,
+		"TaskQuestion":"Закончите предложение с фразовым глаголом",
+		"TaskText":"I don’t have enough money on my account, I have to ___.",
+		"TaskAnswers":"pay up_pay back_pay off_pay in",
+		"TaskRightAnswer":"3"}
+	)
+	db.insert_row("Tasks", {
+		"TaskDiff":0,
+		"TaskTopic":1,
+		"TaskType":1,
+		"TaskQuestion":"Закончите предложение с фразовым глаголом",
+		"TaskText":"He ___ from dogs because he was afraid of them.",
+		"TaskAnswers":"kept off_kept out_kept in_kept away",
+		"TaskRightAnswer":"3"}
+	)
+	db.insert_row("Tasks", {
+		"TaskDiff":0,
+		"TaskTopic":1,
+		"TaskType":1,
+		"TaskQuestion":"Закончите предложение с фразовым глаголом",
+		"TaskText":"My mother usually ___ at 7 o’clock.",
+		"TaskAnswers":"gets off_gets up_gets in_gets away",
+		"TaskRightAnswer":"1"}
+	)
+	db.insert_row("Tasks", {
+		"TaskDiff":0,
+		"TaskTopic":1,
+		"TaskType":1,
+		"TaskQuestion":"Закончите предложение с фразовым глаголом",
+		"TaskText":"I am thinking about ___ football or basketball.",
+		"TaskAnswers":"taking up_taking in_taking over_taking down",
+		"TaskRightAnswer":"0"}
+	)
+	db.insert_row("Tasks", {
+		"TaskDiff":0,
+		"TaskTopic":1,
+		"TaskType":1,
+		"TaskQuestion":"Закончите предложение с фразовым глаголом",
+		"TaskText":"Children have a lively imagination, they often ___ stories.",
+		"TaskAnswers":"make off_make in_make out_make up",
+		"TaskRightAnswer":"3"}
+	)
+	db.insert_row("Tasks", {
+		"TaskDiff":0,
+		"TaskTopic":1,
+		"TaskType":1,
+		"TaskQuestion":"Закончите предложение с фразовым глаголом",
+		"TaskText":"Millie ___ her mother in appearance.",
+		"TaskAnswers":"takes out_takes down_takes after_takes away",
+		"TaskRightAnswer":"2"}
+	)
+	db.insert_row("Tasks", {
+		"TaskDiff":0,
+		"TaskTopic":1,
+		"TaskType":1,
+		"TaskQuestion":"Закончите предложение с фразовым глаголом",
+		"TaskText":"My father ___ smoking long time ago.",
+		"TaskAnswers":"gave up_gave in_gave away_gave off",
+		"TaskRightAnswer":"0"}
+	)
+	db.insert_row("Tasks", {
+		"TaskDiff":0,
+		"TaskTopic":1,
+		"TaskType":1,
+		"TaskQuestion":"Закончите предложение с фразовым глаголом",
+		"TaskText":"As the plane ___ I felt really nervous.",
+		"TaskAnswers":"took out_took off_took down_took away",
+		"TaskRightAnswer":"1"}
+	)
+	db.insert_row("Tasks", {
+		"TaskDiff":0,
+		"TaskTopic":1,
+		"TaskType":1,
+		"TaskQuestion":"Закончите предложение с фразовым глаголом",
+		"TaskText":"They poured water on her face to __ her __.",
+		"TaskAnswers":"bring up_bring round_bring in_bring down",
+		"TaskRightAnswer":"1"}
+	)
+	db.insert_row("Tasks", {
+		"TaskDiff":0,
+		"TaskTopic":1,
+		"TaskType":1,
+		"TaskQuestion":"Закончите предложение с фразовым глаголом",
+		"TaskText":"It was really dark and I couldn’t ___ the sign on the road.",
+		"TaskAnswers":"make up_make in_make out_make off",
+		"TaskRightAnswer":"2"}
+	)
+	db.insert_row("Tasks", {
+		"TaskDiff":0,
+		"TaskTopic":1,
+		"TaskType":1,
+		"TaskQuestion":"Закончите предложение с фразовым глаголом",
+		"TaskText":"It is really challenging task to ___ children nowadays.",
+		"TaskAnswers":"bring in_bring out_bring round_bring up",
+		"TaskRightAnswer":"3"}
+	)
+	db.insert_row("Tasks", {
+		"TaskDiff":0,
+		"TaskTopic":1,
+		"TaskType":1,
+		"TaskQuestion":"Закончите предложение с фразовым глаголом",
+		"TaskText":"Pick up your pencils and ___ the notes.",
+		"TaskAnswers":"take out_take down_take up_take in",
+		"TaskRightAnswer":"1"}
+	)
+	db.insert_row("Tasks", {
+		"TaskDiff":1,
+		"TaskTopic":1,
+		"TaskType":1,
+		"TaskQuestion":"Закончите предложение с фразовым глаголом",
+		"TaskText":"After begging my parents for years for a dog, they finally ___.",
+		"TaskAnswers":"gave up_gave in_gave out_gave over",
+		"TaskRightAnswer":"1"}
+	)
+	db.insert_row("Tasks", {
+		"TaskDiff":1,
+		"TaskTopic":1,
+		"TaskType":1,
+		"TaskQuestion":"Закончите предложение с фразовым глаголом",
+		"TaskText":"Can you ___ a moment! I can’t catch up, you are too fast!",
+		"TaskAnswers":"hold up_hold on_hold in_hold back",
+		"TaskRightAnswer":"1"}
+	)
+	db.insert_row("Tasks", {
+		"TaskDiff":1,
+		"TaskTopic":1,
+		"TaskType":1,
+		"TaskQuestion":"Закончите предложение с фразовым глаголом",
+		"TaskText":"I usually ___ my friends in times of trouble.",
+		"TaskAnswers":"turn up_turn to_turn in_turn down",
+		"TaskRightAnswer":"1"}
+	)
+	db.insert_row("Tasks", {
+		"TaskDiff":1,
+		"TaskTopic":1,
+		"TaskType":1,
+		"TaskQuestion":"Закончите предложение с фразовым глаголом",
+		"TaskText":"The firemen could not ___ the fire till the morning when it started to rain.",
+		"TaskAnswers":"put off_put in_put aside_put out",
+		"TaskRightAnswer":"3"}
+	)
+	db.insert_row("Tasks", {
+		"TaskDiff":1,
+		"TaskTopic":1,
+		"TaskType":1,
+		"TaskQuestion":"Закончите предложение с фразовым глаголом",
+		"TaskText":"The doctor told him to ___ weight. He is too skinny.",
+		"TaskAnswers":"put up_put in_put on_put forward",
+		"TaskRightAnswer":"2"}
+	)
+	db.insert_row("Tasks", {
+		"TaskDiff":1,
+		"TaskTopic":1,
+		"TaskType":1,
+		"TaskQuestion":"Закончите предложение с фразовым глаголом",
+		"TaskText":"My mom wants to ___ 100$ a week so that she would be able to afford that trip.",
+		"TaskAnswers":"set off_set up_set aside_set in",
+		"TaskRightAnswer":"2"}
+	)
+	db.insert_row("Tasks", {
+		"TaskDiff":1,
+		"TaskTopic":1,
+		"TaskType":1,
+		"TaskQuestion":"Закончите предложение с фразовым глаголом",
+		"TaskText":"I am not going to ___ with your outrageous behavior.",
+		"TaskAnswers":"put on_put off_put up_put forward",
+		"TaskRightAnswer":"2"}
+	)
+	db.insert_row("Tasks", {
+		"TaskDiff":1,
+		"TaskTopic":1,
+		"TaskType":1,
+		"TaskQuestion":"Закончите предложение с фразовым глаголом",
+		"TaskText":"Lawrence is trying to ___ on fatty foods.",
+		"TaskAnswers":"cut off_cut out_cut in_cut down",
+		"TaskRightAnswer":"3"}
+	)
+	db.insert_row("Tasks", {
+		"TaskDiff":1,
+		"TaskTopic":1,
+		"TaskType":1,
+		"TaskQuestion":"Закончите предложение с фразовым глаголом",
+		"TaskText":"The kids ___ Trent because he is different.",
+		"TaskAnswers":"pick on_pick in_pick around_pick away",
+		"TaskRightAnswer":"0"}
+	)
+	db.insert_row("Tasks", {
+		"TaskDiff":1,
+		"TaskTopic":1,
+		"TaskType":1,
+		"TaskQuestion":"Закончите предложение с фразовым глаголом",
+		"TaskText":"Emily ___ when she saw the burglar suddenly enter her home.",
+		"TaskAnswers":"passed away_passed out_passed over_passed in",
+		"TaskRightAnswer":"1"}
+	)
+	db.insert_row("Tasks", {
+		"TaskDiff":1,
+		"TaskTopic":1,
+		"TaskType":1,
+		"TaskQuestion":"Закончите предложение с фразовым глаголом",
+		"TaskText":"He wants to ___ as a mean boss so his employees will work hard for him.",
+		"TaskAnswers":"come like_come in_come over_come across",
+		"TaskRightAnswer":"3"}
+	)
+	db.insert_row("Tasks", {
+		"TaskDiff":1,
+		"TaskTopic":1,
+		"TaskType":1,
+		"TaskQuestion":"Закончите предложение с фразовым глаголом",
+		"TaskText":"The company was experiencing financial problems, so they had to ___ fifty employees.",
+		"TaskAnswers":"lay out_lay over_lay off_lay on",
+		"TaskRightAnswer":"2"}
+	)
+	db.insert_row("Tasks", {
+		"TaskDiff":1,
+		"TaskTopic":1,
+		"TaskType":1,
+		"TaskQuestion":"Закончите предложение с фразовым глаголом",
+		"TaskText":"He ___ when the police officers started to question him about the robbery.",
+		"TaskAnswers":"clammed up_clammed over_clammed about_clammed out",
+		"TaskRightAnswer":"0"}
+	)
+	db.insert_row("Tasks", {
+		"TaskDiff":1,
+		"TaskTopic":1,
+		"TaskType":1,
+		"TaskQuestion":"Закончите предложение с фразовым глаголом",
+		"TaskText":"Sue felt she should ___ on her math skills before she started school.",
+		"TaskAnswers":"brush over_brush in_brush up_brush about",
+		"TaskRightAnswer":"2"}
+	)
+	db.insert_row("Tasks", {
+		"TaskDiff":1,
+		"TaskTopic":1,
+		"TaskType":1,
+		"TaskQuestion":"Закончите предложение с фразовым глаголом",
+		"TaskText":"We ___ all regional players to work constructively towards that goal.",
+		"TaskAnswers":"call with_call up_call in_call upon",
+		"TaskRightAnswer":"3"}
+	)
+	db.insert_row("Tasks", {
+		"TaskDiff":1,
+		"TaskTopic":1,
+		"TaskType":1,
+		"TaskQuestion":"Закончите предложение с фразовым глаголом",
+		"TaskText":"But recently it has ___ difficulties.",
+		"TaskAnswers":"run in_run over_run into_run with",
+		"TaskRightAnswer":"2"}
+	)
+	db.insert_row("Tasks", {
+		"TaskDiff":1,
+		"TaskTopic":1,
+		"TaskType":1,
+		"TaskQuestion":"Закончите предложение с фразовым глаголом",
+		"TaskText":"My friend was ... because of the car accident in the city center.",
+		"TaskAnswers":"held up_held on_held in_held off",
+		"TaskRightAnswer":"0"}
+	)
+	db.insert_row("Tasks", {
+		"TaskDiff":1,
+		"TaskTopic":1,
+		"TaskType":1,
+		"TaskQuestion":"Закончите предложение с фразовым глаголом",
+		"TaskText":"The scientist ___ an experiment on animals.",
+		"TaskAnswers":"carried out_carried on with_carried in_carried up",
+		"TaskRightAnswer":"0"}
+	)
+
+	db.insert_row("Tasks", {
+		"TaskDiff":0,
+		"TaskTopic":3,
+		"TaskType":2,
+		"TaskQuestion":"Расположите слова в правильном порядке",
+		"TaskText":"I have never eaten such good food before",
+		"TaskAnswers":"",
+		"TaskRightAnswer":"I have never eaten such good food before"}
+	)
+	db.insert_row("Tasks", {
+		"TaskDiff":0,
+		"TaskTopic":3,
+		"TaskType":2,
+		"TaskQuestion":"Расположите слова в правильном порядке",
+		"TaskText":"Will you please ask Ron why he has taken my umbrella?",
+		"TaskAnswers":"",
+		"TaskRightAnswer":"Will you, please, ask Ron why he has taken my umbrella?"}
+	)
+	db.insert_row("Tasks", {
+		"TaskDiff":0,
+		"TaskTopic":3,
+		"TaskType":2,
+		"TaskQuestion":"Расположите слова в правильном порядке",
+		"TaskText":"I wonder if Steve is going to work at the computer the entire day",
+		"TaskAnswers":"",
+		"TaskRightAnswer":"I wonder if Steve is going to work at the computer the entire day"}
+	)
+	db.insert_row("Tasks", {
+		"TaskDiff":0,
+		"TaskTopic":3,
+		"TaskType":2,
+		"TaskQuestion":"Расположите слова в правильном порядке",
+		"TaskText":"Ask Ernest what he usually does at the weekend",
+		"TaskAnswers":"",
+		"TaskRightAnswer":"Ask Ernest what he usually does at the weekend"}
+	)
+	db.insert_row("Tasks", {
+		"TaskDiff":0,
+		"TaskTopic":3,
+		"TaskType":2,
+		"TaskQuestion":"Расположите слова в правильном порядке",
+		"TaskText":"Look at your watch and tell me what time it is",
+		"TaskAnswers":"",
+		"TaskRightAnswer":"Look at your watch and tell me what time it is"}
+	)
+	db.insert_row("Tasks", {
+		"TaskDiff":0,
+		"TaskTopic":3,
+		"TaskType":2,
+		"TaskQuestion":"Расположите слова в правильном порядке",
+		"TaskText":"Steve was wearing a fantastic Italian coat",
+		"TaskAnswers":"",
+		"TaskRightAnswer":"Steve was wearing a fantastic Italian coat"}
+	)
+	db.insert_row("Tasks", {
+		"TaskDiff":0,
+		"TaskTopic":3,
+		"TaskType":2,
+		"TaskQuestion":"Расположите слова в правильном порядке",
+		"TaskText":"Who did Nick see riding Anna's bicycle in the forest?",
+		"TaskAnswers":"",
+		"TaskRightAnswer":"Who did Nick see riding Anna's bicycle in the forest?"}
+	)
+	db.insert_row("Tasks", {
+		"TaskDiff":0,
+		"TaskTopic":3,
+		"TaskType":2,
+		"TaskQuestion":"Расположите слова в правильном порядке",
+		"TaskText":"What will you be doing tomorrow morning?",
+		"TaskAnswers":"",
+		"TaskRightAnswer":"What will you be doing tomorrow morning?"}
+	)
+	db.insert_row("Tasks", {
+		"TaskDiff":0,
+		"TaskTopic":3,
+		"TaskType":2,
+		"TaskQuestion":"Расположите слова в правильном порядке",
+		"TaskText":"My brother found my purse outside the house",
+		"TaskAnswers":"",
+		"TaskRightAnswer":"My brother found my purse outside the house"}
+	)
+	db.insert_row("Tasks", {
+		"TaskDiff":0,
+		"TaskTopic":3,
+		"TaskType":2,
+		"TaskQuestion":"Расположите слова в правильном порядке",
+		"TaskText":"How far is your town from here?",
+		"TaskAnswers":"",
+		"TaskRightAnswer":"How far is your town from here?"}
+	)
+	db.insert_row("Tasks", {
+		"TaskDiff":0,
+		"TaskTopic":3,
+		"TaskType":2,
+		"TaskQuestion":"Расположите слова в правильном порядке",
+		"TaskText":"Scott drives to work every day",
+		"TaskAnswers":"",
+		"TaskRightAnswer":"Scott drives to work every day"}
+	)
+	db.insert_row("Tasks", {
+		"TaskDiff":0,
+		"TaskTopic":3,
+		"TaskType":2,
+		"TaskQuestion":"Расположите слова в правильном порядке",
+		"TaskText":"I think you should never put this T-shirt on",
+		"TaskAnswers":"",
+		"TaskRightAnswer":"I think you should never put this T-shirt on"}
+	)
+	db.insert_row("Tasks", {
+		"TaskDiff":0,
+		"TaskTopic":3,
+		"TaskType":2,
+		"TaskQuestion":"Расположите слова в правильном порядке",
+		"TaskText":"When do you get up in the morning?",
+		"TaskAnswers":"",
+		"TaskRightAnswer":"When do you get up in the morning?"}
+	)
+	db.insert_row("Tasks", {
+		"TaskDiff":0,
+		"TaskTopic":3,
+		"TaskType":2,
+		"TaskQuestion":"Расположите слова в правильном порядке",
+		"TaskText":"You really shouldn't go to bed so late",
+		"TaskAnswers":"",
+		"TaskRightAnswer":"You really shouldn't go to bed so late"}
+	)
+	db.insert_row("Tasks", {
+		"TaskDiff":0,
+		"TaskTopic":3,
+		"TaskType":2,
+		"TaskQuestion":"Расположите слова в правильном порядке",
+		"TaskText":"Do you often have to stay at work after office hours?",
+		"TaskAnswers":"",
+		"TaskRightAnswer":"Do you often have to stay at work after office hours?"}
+	)
+	db.insert_row("Tasks", {
+		"TaskDiff":0,
+		"TaskTopic":3,
+		"TaskType":2,
+		"TaskQuestion":"Расположите слова в правильном порядке",
+		"TaskText":"Jerry is often the last to come to his office",
+		"TaskAnswers":"",
+		"TaskRightAnswer":"Jerry is often the last to come to his office"}
+	)
+	db.insert_row("Tasks", {
+		"TaskDiff":0,
+		"TaskTopic":3,
+		"TaskType":2,
+		"TaskQuestion":"Расположите слова в правильном порядке",
+		"TaskText":"I was glad that John looked so well after his recent illness",
+		"TaskAnswers":"",
+		"TaskRightAnswer":"I was glad that John looked so well after his recent illness"}
+	)
+	db.insert_row("Tasks", {
+		"TaskDiff":1,
+		"TaskTopic":3,
+		"TaskType":2,
+		"TaskQuestion":"Расположите слова в правильном порядке",
+		"TaskText":"Sam took out his album because he wanted to show us his photos",
+		"TaskAnswers":"",
+		"TaskRightAnswer":"Sam took out his album because he wanted to show us his photos"}
+	)
+	db.insert_row("Tasks", {
+		"TaskDiff":1,
+		"TaskTopic":3,
+		"TaskType":2,
+		"TaskQuestion":"Расположите слова в правильном порядке",
+		"TaskText":"her husband usually returns home at 7 p.m",
+		"TaskAnswers":"",
+		"TaskRightAnswer":"her husband usually returns home at 7 p.m"}
+	)
+	db.insert_row("Tasks", {
+		"TaskDiff":1,
+		"TaskTopic":3,
+		"TaskType":2,
+		"TaskQuestion":"Расположите слова в правильном порядке",
+		"TaskText":"she will tell you this story in the park tomorrow",
+		"TaskAnswers":"",
+		"TaskRightAnswer":"she will tell you this story in the park tomorrow"}
+	)
+	db.insert_row("Tasks", {
+		"TaskDiff":1,
+		"TaskTopic":3,
+		"TaskType":2,
+		"TaskQuestion":"Расположите слова в правильном порядке",
+		"TaskText":"he ran into his schoolmate in the mall",
+		"TaskAnswers":"",
+		"TaskRightAnswer":"he ran into his schoolmate in the mall"}
+	)
+	db.insert_row("Tasks", {
+		"TaskDiff":1,
+		"TaskTopic":3,
+		"TaskType":2,
+		"TaskQuestion":"Расположите слова в правильном порядке",
+		"TaskText":"they took a small black kitten home",
+		"TaskAnswers":"",
+		"TaskRightAnswer":"they took a small black kitten home"}
+	)
+	db.insert_row("Tasks", {
+		"TaskDiff":1,
+		"TaskTopic":3,
+		"TaskType":2,
+		"TaskQuestion":"Расположите слова в правильном порядке",
+		"TaskText":"what are the results of your blood test?",
+		"TaskAnswers":"",
+		"TaskRightAnswer":"what are the results of your blood test?"}
+	)
+	db.insert_row("Tasks", {
+		"TaskDiff":1,
+		"TaskTopic":3,
+		"TaskType":2,
+		"TaskQuestion":"Расположите слова в правильном порядке",
+		"TaskText":"it is unfair to give him monthly bonus again",
+		"TaskAnswers":"",
+		"TaskRightAnswer":"it is unfair to give him monthly bonus again"}
+	)
+	db.insert_row("Tasks", {
+		"TaskDiff":1,
+		"TaskTopic":3,
+		"TaskType":2,
+		"TaskQuestion":"Расположите слова в правильном порядке",
+		"TaskText":"it was his car that was stolen yesterday",
+		"TaskAnswers":"",
+		"TaskRightAnswer":"it was his car that was stolen yesterday"}
+	)
+	db.insert_row("Tasks", {
+		"TaskDiff":1,
+		"TaskTopic":3,
+		"TaskType":2,
+		"TaskQuestion":"Расположите слова в правильном порядке",
+		"TaskText":"you can easily lose your friend’s trust",
+		"TaskAnswers":"",
+		"TaskRightAnswer":"you can easily lose your friend’s trust"}
+	)
+	db.insert_row("Tasks", {
+		"TaskDiff":1,
+		"TaskTopic":3,
+		"TaskType":2,
+		"TaskQuestion":"Расположите слова в правильном порядке",
+		"TaskText":"my brother always finds a way out of any situation",
+		"TaskAnswers":"",
+		"TaskRightAnswer":"my brother always finds a way out of any situation"}
+	)
+	db.insert_row("Tasks", {
+		"TaskDiff":1,
+		"TaskTopic":3,
+		"TaskType":2,
+		"TaskQuestion":"Расположите слова в правильном порядке",
+		"TaskText":"may I trouble you for a napkin?",
+		"TaskAnswers":"",
+		"TaskRightAnswer":"may I trouble you for a napkin?"}
+	)
+	db.insert_row("Tasks", {
+		"TaskDiff":1,
+		"TaskTopic":3,
+		"TaskType":2,
+		"TaskQuestion":"Расположите слова в правильном порядке",
+		"TaskText":"my grandfather was a passionate numismatist",
+		"TaskAnswers":"",
+		"TaskRightAnswer":"my grandfather was a passionate numismatist"}
+	)
+	db.insert_row("Tasks", {
+		"TaskDiff":1,
+		"TaskTopic":3,
+		"TaskType":2,
+		"TaskQuestion":"Расположите слова в правильном порядке",
+		"TaskText":"I will go on working on the farm as long as I can",
+		"TaskAnswers":"",
+		"TaskRightAnswer":"I will go on working on the farm as long as I can"}
+	)
+	db.insert_row("Tasks", {
+		"TaskDiff":1,
+		"TaskTopic":3,
+		"TaskType":2,
+		"TaskQuestion":"Расположите слова в правильном порядке",
+		"TaskText":"the train was delayed by three hours because of bad weather",
+		"TaskAnswers":"",
+		"TaskRightAnswer":"the train was delayed by three hours because of bad weather"}
+	)
+	db.insert_row("Tasks", {
+		"TaskDiff":1,
+		"TaskTopic":3,
+		"TaskType":2,
+		"TaskQuestion":"Расположите слова в правильном порядке",
+		"TaskText":"there is always heavy traffic in the city centre",
+		"TaskAnswers":"",
+		"TaskRightAnswer":"there is always heavy traffic in the city centre"}
+	)
+	db.insert_row("Tasks", {
+		"TaskDiff":1,
+		"TaskTopic":3,
+		"TaskType":2,
+		"TaskQuestion":"Расположите слова в правильном порядке",
+		"TaskText":"the passengers were told to fasten their seat belts",
+		"TaskAnswers":"",
+		"TaskRightAnswer":"the passengers were told to fasten their seat belts"}
+	)
+	db.insert_row("Tasks", {
+		"TaskDiff":1,
+		"TaskTopic":3,
+		"TaskType":2,
+		"TaskQuestion":"Расположите слова в правильном порядке",
+		"TaskText":"I have never had any experience of living in a small village",
+		"TaskAnswers":"",
+		"TaskRightAnswer":"I have never had any experience of living in a small village"}
+	)
+	db.insert_row("Tasks", {
+		"TaskDiff":1,
+		"TaskTopic":3,
+		"TaskType":2,
+		"TaskQuestion":"Расположите слова в правильном порядке",
+		"TaskText":"he tried to be serious but he couldn’t help laughing",
+		"TaskAnswers":"",
+		"TaskRightAnswer":"he tried to be serious but he couldn’t help laughing"}
 	)
 
