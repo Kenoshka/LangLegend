@@ -31,5 +31,7 @@ enum INFO {
 
 var DATA = {
 	USUAL: ["Ежедневное задание", sword_icon],
-	BLITZ: ["Блитц 15", fire_icon]
+	BLITZ: ["Блитц 10", fire_icon]
 }
+
+var NOTIFY = []

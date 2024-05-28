@@ -17,12 +17,12 @@
 [ext_resource type="Texture2D" uid="uid://ctj8g3oxgptmw" path="res://Assets/UI/blue_button.png" id="15_xep43"]
 [ext_resource type="Texture2D" uid="uid://detw6b3imeut1" path="res://Assets/UI/blue_button_press.png" id="16_e0e0c"]
 
-[sub_resource type="Gradient" id="Gradient_y4y1o"]
+[sub_resource type="Gradient" id="Gradient_51qou"]
 offsets = PackedFloat32Array(1)
 colors = PackedColorArray(1, 0.20956, 0.186606, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_8pa6e"]
-gradient = SubResource("Gradient_y4y1o")
+gradient = SubResource("Gradient_51qou")
 width = 32
 height = 32
 
@@ -582,7 +582,7 @@ grow_vertical = 2
 theme_override_constants/outline_size = 2
 theme_override_fonts/font = ExtResource("4_7pman")
 theme_override_font_sizes/font_size = 26
-text = "Блитц 15"
+text = "Блитц 10"
 horizontal_alignment = 1
 vertical_alignment = 1
 

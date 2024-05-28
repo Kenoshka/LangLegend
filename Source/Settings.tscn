@@ -1,14 +1,14 @@
-[gd_scene load_steps=17 format=3 uid="uid://f0c5e4imh521"]
+[gd_scene load_steps=18 format=3 uid="uid://f0c5e4imh521"]
 
 [ext_resource type="Script" path="res://Source/Settings.gd" id="1_ydrn0"]
 [ext_resource type="FontFile" uid="uid://cibh2hon2txu4" path="res://Assets/Technical/Perun.ttf" id="2_vxdow"]
 
-[sub_resource type="Gradient" id="Gradient_envps"]
+[sub_resource type="Gradient" id="Gradient_dx5pp"]
 offsets = PackedFloat32Array(0)
 colors = PackedColorArray(0, 0, 0, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_dmx7u"]
-gradient = SubResource("Gradient_envps")
+gradient = SubResource("Gradient_dx5pp")
 height = 30
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w8jck"]
@@ -35,6 +35,10 @@ corner_radius_bottom_left = 20
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_553gk"]
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_nfvn5"]
+
+[sub_resource type="Gradient" id="Gradient_envps"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_lpbhu"]
 gradient = SubResource("Gradient_envps")

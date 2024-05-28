@@ -13,7 +13,9 @@ var player_hp = 4:
 			$Player/PlayerHP.get_child(i).set_status(val > i)
 
 var HP_Scene = preload("res://Source/HPBar.tscn")
+
 var TestTask_Scene = preload("res://Source/TestTask.tscn")
+var OrderTask_Scene = preload("res://Source/WordOrderTask.tscn")
 
 var BACK_CHARS = [
 	preload("res://Assets/Characters/1_back.png"),
@@ -29,8 +31,8 @@ var ENEMIES = [
 	preload("res://Assets/Creatures/4.png"),
 ]
 
-var ATTACK_TOPICS = [1, 2, 4]
-var DODGE_TOPICS = [1, 2, 4]
+var ATTACK_TOPICS = [1, 2, 3, 4]
+var DODGE_TOPICS = [1, 2, 3, 4]
 
 var ATTACK_TASKS = []
 var DODGE_TASKS = []
@@ -71,24 +73,39 @@ func _ready():
 		start_turn()
 	else:
 		$Enemy.visible = false
+		$BlitzUI.visible = true
+		$ButtonsContainer.visible = false
+		$Player.visible = false
+		$BG.visible = false
 		await set_tasks_bank()
 		$BlitzTimer.start(60)
+		$BlitzUI/TimerBG.value = 100
+		create_tween().tween_property($BlitzUI/TimerBG, "value", 0.0, 60)
 		start_blitz()
+
 
 
 func start_blitz():
 	if TASKS_BANK.size() < 1:
 		await set_tasks_bank()
 	var task_id = TASKS_BANK[randi_range(0, TASKS_BANK.size() - 1)]
-	var task_scene = TestTask_Scene.instantiate()
+	var task_scene
+	if DbHandler.get_task_type(task_id) == 1:
+		task_scene = TestTask_Scene.instantiate()
+	elif DbHandler.get_task_type(task_id) == 2:
+		task_scene = OrderTask_Scene.instantiate()
 	task_scene.TASK_ID = task_id
 	task_scene.TWEEN_TIME = 0.3
+	TASKS_BANK.erase(task_id)
 	add_child(task_scene)
 	task_scene.AnswerGiven.connect(answer_handler)
+	place_timer_above()
 
+func place_timer_above():
+	move_child($BlitzUI, get_child_count())
 
 func _on_blitz_timer_timeout():
-	if rights > 14:
+	if rights > 9:
 		game_over(true)
 	else:
 		game_over(false)
@@ -113,14 +130,20 @@ func game_over(win):
 	if win:
 		if FightHandler.IS_DAILY:
 			DataControl.DATA[DataControl.EXP] += 50
+			FightHandler.NOTIFY.append("Хорошая работа!")
 			if FightHandler.TYPE_CHOSEN == FightHandler.USUAL:
 				DataControl.DATA[DataControl.DAILY_USUAL] = Time.get_date_string_from_system()
+				FightHandler.NOTIFY.append("Вы получаете 50 очков опыта.")
 			if FightHandler.TYPE_CHOSEN == FightHandler.BLITZ:
 				DataControl.DATA[DataControl.DAILY_BLITZ] = Time.get_date_string_from_system()
+				FightHandler.NOTIFY.append("Вы ответили %s раз верно и %s раз неверно." % [rights, wrongs])
 		else:
 			DataControl.DATA[DataControl.EXP] += 10
+			FightHandler.NOTIFY.append("Неплохо потренировались!")
+			FightHandler.NOTIFY.append("Вы получаете 10 очков опыта.")
 	else:
-		pass
+		FightHandler.NOTIFY.append("Как жаль...")
+		FightHandler.NOTIFY.append("В следующий раз у вас всё получится!")
 	DataControl.save_data()
 	await create_tween().tween_property(self, "modulate:a", 0.0, 0.5).finished
 	get_tree().change_scene_to_file("res://Source/Main.tscn")
@@ -129,7 +152,7 @@ func game_over(win):
 func set_topics():
 	ATTACK_TOPIC = ATTACK_TOPICS[randi_range(0, ATTACK_TOPICS.size() - 1)]
 	DODGE_TOPICS.erase(ATTACK_TOPIC)
-	DODGE_TOPICS = DODGE_TOPICS[randi_range(0, DODGE_TOPICS.size() - 1)]
+	DODGE_TOPIC = DODGE_TOPICS[randi_range(0, DODGE_TOPICS.size() - 1)]
 	DbHandler.db.query_with_bindings("SELECT * FROM Topics where TopicId = ?", [ATTACK_TOPIC])
 	$ButtonsContainer/AttackButton/AttackTopic.text = DbHandler.db.query_result[0]["TopicName"]
 	DbHandler.db.query_with_bindings("SELECT * FROM Topics where TopicId = ?", [DODGE_TOPIC])
@@ -163,8 +186,13 @@ func set_tasks_bank():
 func _on_attack_button_pressed():
 	player_attacks = true
 	var task_id = ATTACK_TASKS[randi_range(0, ATTACK_TASKS.size() - 1)]
-	var task_scene = TestTask_Scene.instantiate()
+	var task_scene
+	if DbHandler.get_task_type(task_id) == 1:
+		task_scene = TestTask_Scene.instantiate()
+	elif DbHandler.get_task_type(task_id) == 2:
+		task_scene = OrderTask_Scene.instantiate()
 	task_scene.TASK_ID = task_id
+	ATTACK_TASKS.erase(task_id)
 	add_child(task_scene)
 	task_scene.AnswerGiven.connect(answer_handler)
 
@@ -172,10 +200,16 @@ func _on_attack_button_pressed():
 func _on_dodge_button_pressed():
 	player_attacks = false
 	var task_id = DODGE_TASKS[randi_range(0, DODGE_TASKS.size() - 1)]
-	var task_scene = TestTask_Scene.instantiate()
+	var task_scene
+	if DbHandler.get_task_type(task_id) == 1:
+		task_scene = TestTask_Scene.instantiate()
+	elif DbHandler.get_task_type(task_id) == 2:
+		task_scene = OrderTask_Scene.instantiate()
 	task_scene.TASK_ID = task_id
+	DODGE_TASKS.erase(task_id)
 	add_child(task_scene)
 	task_scene.AnswerGiven.connect(answer_handler)
+
 
 func answer_handler(is_true):
 	if FightHandler.TYPE_CHOSEN != FightHandler.BLITZ:
@@ -185,6 +219,7 @@ func answer_handler(is_true):
 			rights += 1
 		else:
 			wrongs +=1
+		$BlitzUI/Rights.text = str(rights)
 		start_blitz()
 
 

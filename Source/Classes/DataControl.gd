@@ -22,7 +22,7 @@ var DATA = {
 	PROFILE_CREATED:false,
 	TUTORIAL_ENDED:false,
 	START_DATE:Time.get_date_string_from_system(),
-	DIFFICULTY:1,
+	DIFFICULTY:0,
 	EXP: 100,
 	DAILY_USUAL: "2020-12-12",
 	DAILY_BLITZ: "2020-12-12"

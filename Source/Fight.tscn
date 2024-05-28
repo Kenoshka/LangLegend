@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://ciefkto6njlga"]
+[gd_scene load_steps=20 format=3 uid="uid://ciefkto6njlga"]
 
 [ext_resource type="Script" path="res://Source/Fight.gd" id="1_3wh77"]
 [ext_resource type="Texture2D" uid="uid://cguxeq077fxe4" path="res://Assets/UI/tileSand.png" id="2_j2pku"]
@@ -9,6 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://dke2w2l5cajbo" path="res://Assets/UI/red_button_press.png" id="6_ouckl"]
 [ext_resource type="FontFile" uid="uid://cibh2hon2txu4" path="res://Assets/Technical/Perun.ttf" id="7_3jj7v"]
 [ext_resource type="Texture2D" uid="uid://detw6b3imeut1" path="res://Assets/UI/blue_button_press.png" id="7_abbvs"]
+[ext_resource type="Texture2D" uid="uid://hefajm4ibs2" path="res://Assets/UI/timer_background.png" id="10_kcsvd"]
+[ext_resource type="Texture2D" uid="uid://brfr0v2je1c8t" path="res://Assets/UI/timer.png" id="11_iwj1g"]
 
 [sub_resource type="Animation" id="Animation_lcuv2"]
 resource_name = "Attack"
@@ -207,6 +209,7 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 metadata/_edit_use_anchors_ = true
+metadata/_edit_group_ = true
 
 [node name="AttackButton" type="TextureButton" parent="ButtonsContainer"]
 custom_minimum_size = Vector2(200, 100)
@@ -257,6 +260,7 @@ theme_override_font_sizes/font_size = 20
 text = "Атаковать"
 horizontal_alignment = 1
 vertical_alignment = 2
+autowrap_mode = 2
 
 [node name="DodgeButton" type="TextureButton" parent="ButtonsContainer"]
 custom_minimum_size = Vector2(200, 100)
@@ -307,7 +311,7 @@ theme_override_font_sizes/font_size = 20
 text = "Уклониться"
 horizontal_alignment = 1
 vertical_alignment = 2
-autowrap_mode = 3
+autowrap_mode = 2
 
 [node name="PlayerAnimation" type="AnimationPlayer" parent="."]
 libraries = {
@@ -322,6 +326,73 @@ libraries = {
 [node name="BlitzTimer" type="Timer" parent="."]
 wait_time = 60.0
 one_shot = true
+
+[node name="BlitzUI" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TimerBG" type="TextureProgressBar" parent="BlitzUI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.728
+anchor_right = 0.5
+anchor_bottom = 0.728
+offset_left = -100.5
+offset_top = -98.8801
+offset_right = 100.5
+offset_bottom = 99.1199
+grow_horizontal = 2
+grow_vertical = 2
+value = 100.0
+fill_mode = 5
+nine_patch_stretch = true
+texture_progress = ExtResource("10_kcsvd")
+metadata/_edit_use_anchors_ = true
+
+[node name="TimerTexture" type="TextureRect" parent="BlitzUI/TimerBG"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.465
+anchor_right = 0.5
+anchor_bottom = 0.465
+offset_left = -59.0
+offset_top = -58.07
+offset_right = 59.0
+offset_bottom = 57.93
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("11_iwj1g")
+expand_mode = 1
+
+[node name="Rights" type="Label" parent="BlitzUI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = 370.0
+offset_right = 20.0
+offset_bottom = 395.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0.988235, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("7_3jj7v")
+theme_override_font_sizes/font_size = 24
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="ButtonsContainer/AttackButton" to="." method="_on_attack_button_pressed"]
 [connection signal="pressed" from="ButtonsContainer/DodgeButton" to="." method="_on_dodge_button_pressed"]

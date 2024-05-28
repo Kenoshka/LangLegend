@@ -1,0 +1,174 @@
+[gd_scene load_steps=10 format=3 uid="uid://b7q0g038tmmjd"]
+
+[ext_resource type="Script" path="res://WordOrderTask.gd" id="1_a0ub5"]
+[ext_resource type="FontFile" uid="uid://cibh2hon2txu4" path="res://Assets/Technical/Perun.ttf" id="2_o3mt3"]
+
+[sub_resource type="Gradient" id="Gradient_tvoug"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ujdyu"]
+gradient = SubResource("Gradient_tvoug")
+height = 60
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_t08ca"]
+gradient = SubResource("Gradient_tvoug")
+height = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_61df1"]
+bg_color = Color(0.364706, 0.364706, 0.364706, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xbm3y"]
+bg_color = Color(0.411765, 0.411765, 0.411765, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_05ed7"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ca5hs"]
+
+[node name="WordOrderTask" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_a0ub5")
+
+[node name="BG" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.074
+anchor_top = 0.042
+anchor_right = 0.954
+anchor_bottom = 0.591
+offset_left = 0.0400009
+offset_top = -0.320004
+offset_right = -0.160034
+offset_bottom = -0.360046
+
+[node name="TaskQuestion" type="Label" parent="VBoxContainer"]
+custom_minimum_size = Vector2(475, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("2_o3mt3")
+theme_override_font_sizes/font_size = 30
+text = "Расставьте слова в поле в правильном порядке"
+autowrap_mode = 3
+
+[node name="Gap" type="TextureRect" parent="VBoxContainer"]
+layout_mode = 2
+texture = SubResource("GradientTexture2D_ujdyu")
+
+[node name="WordPlacing" type="HFlowContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+theme_override_constants/h_separation = 15
+theme_override_constants/v_separation = 15
+
+[node name="Gap2" type="TextureRect" parent="VBoxContainer"]
+layout_mode = 2
+texture = SubResource("GradientTexture2D_t08ca")
+
+[node name="WordsOptions" type="HFlowContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+theme_override_constants/h_separation = 15
+theme_override_constants/v_separation = 15
+
+[node name="ButtonReset" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(150, 60)
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_fonts/font = ExtResource("2_o3mt3")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_61df1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_xbm3y")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_05ed7")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ca5hs")
+toggle_mode = true
+button_pressed = true
+text = "Сбросить"
+metadata/_edit_use_anchors_ = true
+
+[node name="ButtonAccept" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(150, 60)
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_fonts/font = ExtResource("2_o3mt3")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_61df1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_xbm3y")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_05ed7")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ca5hs")
+toggle_mode = true
+button_pressed = true
+text = "Ответить"
+metadata/_edit_use_anchors_ = true
+
+[node name="AnswerColor" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0.17, 0.17, 1)
+
+[node name="AnswerTexture" type="TextureRect" parent="AnswerColor"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -60.0
+offset_top = -60.0
+offset_right = 60.0
+offset_bottom = 60.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.463
+anchor_top = 0.479
+anchor_right = 0.537
+anchor_bottom = 0.521
+offset_left = -0.0200195
+offset_top = 0.159973
+offset_right = 0.019989
+offset_bottom = -0.160034
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.442911, 0.442911, 0.442911, 0.164706)
+
+[connection signal="sort_children" from="VBoxContainer/WordPlacing" to="." method="_on_word_placing_sort_children"]
+[connection signal="pressed" from="VBoxContainer/ButtonReset" to="." method="_on_button_reset_pressed"]
+[connection signal="pressed" from="VBoxContainer/ButtonReset" to="." method="_on_button_hard_pressed"]
+[connection signal="pressed" from="VBoxContainer/ButtonAccept" to="." method="_on_button_accept_pressed"]

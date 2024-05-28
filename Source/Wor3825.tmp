@@ -1,24 +1,24 @@
-[gd_scene load_steps=5 format=3 uid="uid://bwwrps7wabj7i"]
+[gd_scene load_steps=5 format=3 uid="uid://b7q0g038tmmjd"]
 
-[ext_resource type="FontFile" uid="uid://cibh2hon2txu4" path="res://Assets/Technical/Perun.ttf" id="1_3qc86"]
-[ext_resource type="Script" path="res://Source/TestTask.gd" id="1_56uu1"]
+[ext_resource type="Script" path="res://WordOrderTask.gd" id="1_a0ub5"]
+[ext_resource type="FontFile" uid="uid://cibh2hon2txu4" path="res://Assets/Technical/Perun.ttf" id="2_o3mt3"]
 
-[sub_resource type="Gradient" id="Gradient_ba5ch"]
+[sub_resource type="Gradient" id="Gradient_tvoug"]
 offsets = PackedFloat32Array(0)
 colors = PackedColorArray(0, 0, 0, 0)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_vxr33"]
-gradient = SubResource("Gradient_ba5ch")
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_t08ca"]
+gradient = SubResource("Gradient_tvoug")
 height = 60
 
-[node name="TestTask" type="Control"]
+[node name="WordOrderTask" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_56uu1")
+script = ExtResource("1_a0ub5")
 
 [node name="BG" type="ColorRect" parent="."]
 layout_mode = 1
@@ -49,36 +49,19 @@ size_flags_vertical = 0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 2
-theme_override_fonts/font = ExtResource("1_3qc86")
+theme_override_fonts/font = ExtResource("2_o3mt3")
 theme_override_font_sizes/font_size = 30
-text = "Выберите правильное слово"
+text = "Расставьте слова в поле в правильном порядке"
 autowrap_mode = 3
 
-[node name="Gap3" type="TextureRect" parent="VBoxContainer"]
+[node name="Gap" type="TextureRect" parent="VBoxContainer"]
 layout_mode = 2
-texture = SubResource("GradientTexture2D_vxr33")
+texture = SubResource("GradientTexture2D_t08ca")
 
-[node name="TaskText" type="Label" parent="VBoxContainer"]
-custom_minimum_size = Vector2(500, 0)
+[node name="WordPlacing" type="HFlowContainer" parent="VBoxContainer"]
 layout_mode = 2
-size_flags_vertical = 0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("1_3qc86")
-theme_override_font_sizes/font_size = 30
-text = "Выберите правильное слово"
-autowrap_mode = 3
-
-[node name="Gap2" type="TextureRect" parent="VBoxContainer"]
-layout_mode = 2
-texture = SubResource("GradientTexture2D_vxr33")
-
-[node name="AnswersContainer" type="GridContainer" parent="VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_constants/h_separation = 30
-theme_override_constants/v_separation = 30
-columns = 2
+theme_override_constants/h_separation = 15
+theme_override_constants/v_separation = 15
 
 [node name="AnswerColor" type="ColorRect" parent="."]
 visible = false

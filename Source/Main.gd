@@ -4,6 +4,8 @@ extends Control
 
 var paper_scene = preload("res://Source/Paper.tscn")
 
+var notify_scene = preload("res://Source/NotifyWindow.tscn")
+
 var CHARS = [
 	preload("res://Assets/Characters/1.png"),
 	preload("res://Assets/Characters/2.png"),
@@ -12,7 +14,10 @@ var CHARS = [
 ]
 
 
+
+
 func _ready():
+	notification_handler()
 	modulate.a = 0
 	create_tween().tween_property(self, "modulate:a", 1.0, 0.5)
 	$Profile/AvatarRect.texture = CHARS[DataControl.DATA[DataControl.AVATAR]]
@@ -21,6 +26,13 @@ func _ready():
 	$Profile/ProgressBG/ExpBar.value = int(int(DataControl.DATA[DataControl.EXP]) % 100)
 	$Profile/LevelBG/LevelLabel.text = "%s" % int(int(DataControl.DATA[DataControl.EXP]) / 100)
 
+
+func notification_handler():
+	if FightHandler.NOTIFY.size() > 1:
+		var notify = notify_scene.instantiate()
+		notify.set_notify_text(str(FightHandler.NOTIFY[0]), str(FightHandler.NOTIFY[1]))
+		add_child(notify)
+	FightHandler.NOTIFY.clear()
 
 func _on_settings_button_pressed():
 	var tw = create_tween()

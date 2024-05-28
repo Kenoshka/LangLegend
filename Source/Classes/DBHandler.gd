@@ -10,6 +10,12 @@ func _ready():
 	db.open_db()
 	database_setup()
 
+
+func get_task_type(task_id):
+	db.query_with_bindings("SELECT TaskType FROM Tasks where TaskId = ?", [task_id])
+	return db.query_result[0]["TaskType"]
+
+
 func database_setup():
 	var Types = {
 		"TypeId": {
@@ -743,7 +749,7 @@ func insert_data():
 		"TaskQuestion":"Подберите синоним",
 		"TaskText":"soothing",
 		"TaskAnswers":"swimming_abundant_calming_fussing",
-		"TaskRightAnswer":"3"}
+		"TaskRightAnswer":"2"}
 	)
 	db.insert_row("Tasks", {
 		"TaskDiff":1,
@@ -1252,7 +1258,7 @@ func insert_data():
 		"TaskRightAnswer":"Jerry is often the last to come to his office"}
 	)
 	db.insert_row("Tasks", {
-		"TaskDiff":0,
+		"TaskDiff":1,
 		"TaskTopic":3,
 		"TaskType":2,
 		"TaskQuestion":"Расположите слова в правильном порядке",
@@ -1270,13 +1276,13 @@ func insert_data():
 		"TaskRightAnswer":"Sam took out his album because he wanted to show us his photos"}
 	)
 	db.insert_row("Tasks", {
-		"TaskDiff":1,
+		"TaskDiff":0,
 		"TaskTopic":3,
 		"TaskType":2,
 		"TaskQuestion":"Расположите слова в правильном порядке",
-		"TaskText":"her husband usually returns home at 7 p.m",
+		"TaskText":"Her husband usually returns home at 7 p.m",
 		"TaskAnswers":"",
-		"TaskRightAnswer":"her husband usually returns home at 7 p.m"}
+		"TaskRightAnswer":"Her husband usually returns home at 7 p.m"}
 	)
 	db.insert_row("Tasks", {
 		"TaskDiff":1,
