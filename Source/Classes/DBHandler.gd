@@ -80,11 +80,11 @@ func database_setup():
 	db.create_table("Tasks", Tasks)
 
 	await insert_data()
-	for i in range(1, 5):
-		for q in range(0, 2):
-			db.query_with_bindings("SELECT * FROM Tasks where TaskTopic = ? and TaskDiff = ?", [i, q])
-			print(db.query_result.size())
-	print(db.error_message)
+	#for i in range(1, 5):
+		#for q in range(0, 2):
+			#db.query_with_bindings("SELECT * FROM Tasks where TaskTopic = ? and TaskDiff = ?", [i, q])
+			#print(db.query_result.size())
+	#print(db.error_message)
 	db.export_to_json("user://EnglishDatabaseExport")
 
 func insert_data():
@@ -1168,7 +1168,7 @@ func insert_data():
 		"TaskRightAnswer":"Steve was wearing a fantastic Italian coat"}
 	)
 	db.insert_row("Tasks", {
-		"TaskDiff":0,
+		"TaskDiff":1,
 		"TaskTopic":3,
 		"TaskType":2,
 		"TaskQuestion":"Расположите слова в правильном порядке",
@@ -1303,13 +1303,13 @@ func insert_data():
 		"TaskRightAnswer":"he ran into his schoolmate in the mall"}
 	)
 	db.insert_row("Tasks", {
-		"TaskDiff":1,
+		"TaskDiff":0,
 		"TaskTopic":3,
 		"TaskType":2,
 		"TaskQuestion":"Расположите слова в правильном порядке",
-		"TaskText":"they took a small black kitten home",
+		"TaskText":"Do you know how I can get to the bus station?",
 		"TaskAnswers":"",
-		"TaskRightAnswer":"they took a small black kitten home"}
+		"TaskRightAnswer":"Do you know how I can get to the bus station?"}
 	)
 	db.insert_row("Tasks", {
 		"TaskDiff":1,

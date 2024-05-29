@@ -65,6 +65,7 @@ func _input(event):
 					parent_container.add_child(WORD_CHOSEN)
 				word_released()
 
+
 func _on_button_accept_pressed():
 	$AnswerColor.modulate.a = 0
 	$AnswerColor.visible = true

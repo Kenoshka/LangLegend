@@ -31,8 +31,8 @@ var ENEMIES = [
 	preload("res://Assets/Creatures/4.png"),
 ]
 
-var ATTACK_TOPICS = [1, 2, 3, 4]
-var DODGE_TOPICS = [1, 2, 3, 4]
+var ATTACK_TOPICS = [1, 2, 4]
+var DODGE_TOPICS = [1, 2, 4]
 
 var ATTACK_TASKS = []
 var DODGE_TASKS = []
@@ -51,6 +51,9 @@ var rights = 0
 var wrongs = 0
 
 func _ready():
+	if DataControl.DATA[DataControl.EXP] >= 300:
+		ATTACK_TOPICS.append(3)
+		DODGE_TOPICS.append(3)
 	modulate.a = 0
 	create_tween().tween_property(self, "modulate:a", 1.0, 1)
 	$PlayerAnimation.play("RESET")

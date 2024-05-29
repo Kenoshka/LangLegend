@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dearw4i8e0gr7"]
+[gd_scene load_steps=20 format=3 uid="uid://dearw4i8e0gr7"]
 
 [ext_resource type="Script" path="res://Source/ProfileCreation.gd" id="1_jqiq4"]
 [ext_resource type="FontFile" uid="uid://cibh2hon2txu4" path="res://Assets/Technical/Perun.ttf" id="1_stoso"]
@@ -58,6 +58,10 @@ corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ahc4l"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_60afc"]
+gradient = SubResource("Gradient_0reym")
+height = 60
 
 [node name="ProfileCreation" type="Control"]
 layout_mode = 3
@@ -165,9 +169,15 @@ theme_override_fonts/font = ExtResource("1_stoso")
 theme_override_font_sizes/font_size = 30
 text = "Выберите своего персонажа"
 
+[node name="Gap" type="TextureRect" parent="Char/CharBox"]
+layout_mode = 2
+texture = SubResource("GradientTexture2D_60afc")
+
 [node name="GridContainer" type="GridContainer" parent="Char/CharBox"]
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_constants/h_separation = 50
+theme_override_constants/v_separation = 50
 columns = 2
 
 [node name="1" type="TextureButton" parent="Char/CharBox/GridContainer"]

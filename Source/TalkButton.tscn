@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://bpa0dijnb3mkp"]
+
+[ext_resource type="Texture2D" uid="uid://bymq646yfsriw" path="res://Assets/UI/talking.png" id="1_ebfx8"]
+
+[node name="TalkButton" type="TextureButton"]
+anchors_preset = -1
+anchor_left = 0.076
+anchor_top = 0.043
+anchor_right = 0.076
+anchor_bottom = 0.043
+offset_left = -41.04
+offset_top = -41.28
+offset_right = 40.96
+offset_bottom = 40.72
+texture_normal = ExtResource("1_ebfx8")
+ignore_texture_size = true
+stretch_mode = 0

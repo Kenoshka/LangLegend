@@ -1,0 +1,80 @@
+[gd_scene load_steps=4 format=3 uid="uid://bsh7kr2h48jx3"]
+
+[ext_resource type="Texture2D" uid="uid://dyfsn43ntumpc" path="res://Assets/UI/tile_wall.png" id="1_y8qw1"]
+[ext_resource type="Texture2D" uid="uid://bo4k403ihkw4y" path="res://Assets/UI/tile_tower.png" id="2_l6gr7"]
+[ext_resource type="FontFile" uid="uid://cibh2hon2txu4" path="res://Assets/Technical/Perun.ttf" id="3_wuhd5"]
+
+[node name="Leader" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BG" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.118581, 0.118581, 0.118581, 1)
+
+[node name="WallBG" type="TextureRect" parent="BG"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.078125
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_y8qw1")
+stretch_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Tower" type="TextureRect" parent="BG"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.078
+anchor_right = 0.13
+anchor_bottom = 0.078
+offset_top = -69.88
+offset_right = -0.200005
+offset_bottom = 0.119995
+texture = ExtResource("2_l6gr7")
+stretch_mode = 1
+
+[node name="TowerBG" type="TextureRect" parent="BG"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.87
+anchor_top = 0.078
+anchor_right = 1.0
+anchor_bottom = 0.078
+offset_left = 0.199951
+offset_top = -69.88
+offset_bottom = 0.119995
+texture = ExtResource("2_l6gr7")
+stretch_mode = 1
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.131
+anchor_right = 0.5
+anchor_bottom = 0.131
+offset_left = -101.5
+offset_top = -25.76
+offset_right = 101.5
+offset_bottom = 25.24
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.75, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("3_wuhd5")
+theme_override_font_sizes/font_size = 50
+text = "ЛИДЕРЫ"
+metadata/_edit_use_anchors_ = true

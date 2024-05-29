@@ -22,6 +22,7 @@ config/icon="res://Assets/Technical/logo.png"
 DataControl="*res://Source/Classes/DataControl.gd"
 FightHandler="*res://Source/Classes/FightHandler.gd"
 DbHandler="*res://Source/Classes/DBHandler.gd"
+TalksData="*res://Source/Classes/TalksData.gd"
 
 [display]
 

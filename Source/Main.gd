@@ -6,6 +6,10 @@ var paper_scene = preload("res://Source/Paper.tscn")
 
 var notify_scene = preload("res://Source/NotifyWindow.tscn")
 
+var talk_button_scene = preload("res://Source/TalkButton.tscn")
+
+var talk_scene = preload("res://Source/TalkScene.tscn")
+
 var CHARS = [
 	preload("res://Assets/Characters/1.png"),
 	preload("res://Assets/Characters/2.png"),
@@ -14,9 +18,8 @@ var CHARS = [
 ]
 
 
-
-
 func _ready():
+	add_talking()
 	notification_handler()
 	modulate.a = 0
 	create_tween().tween_property(self, "modulate:a", 1.0, 0.5)
@@ -27,12 +30,27 @@ func _ready():
 	$Profile/LevelBG/LevelLabel.text = "%s" % int(int(DataControl.DATA[DataControl.EXP]) / 100)
 
 
+func add_talking():
+	if randi_range(0, 1) > 0 and DataControl.DATA[DataControl.EXP] >= 200:
+		var talk_scn = talk_button_scene.instantiate()
+		talk_scn.pressed.connect(show_talk.bind(talk_scn))
+		$City.add_child(talk_scn)
+		talk_scn.position = Vector2(randf_range(0, $City.size.x - talk_scn.size.x), randf_range(50, $City.size.y - talk_scn.size.y))
+
+
+func show_talk(talk_butt):
+	var talk_scn = talk_scene.instantiate()
+	add_child(talk_scn)
+	talk_butt.queue_free()
+
+
 func notification_handler():
 	if FightHandler.NOTIFY.size() > 1:
 		var notify = notify_scene.instantiate()
 		notify.set_notify_text(str(FightHandler.NOTIFY[0]), str(FightHandler.NOTIFY[1]))
 		add_child(notify)
 	FightHandler.NOTIFY.clear()
+
 
 func _on_settings_button_pressed():
 	var tw = create_tween()
@@ -119,3 +137,11 @@ func _on_blitz_button_pressed():
 
 func _on_close_train_button_pressed():
 	$TrainWindow.visible = false
+
+
+func _on_leaders_button_pressed():
+	DataControl.ask_leaderboard_data()
+	var tw = create_tween()
+	tw.tween_property(self, "modulate:a", 0.0, 0.5)
+	await tw.finished
+	get_tree().change_scene_to_file("res://Source/Leaders.tscn")
