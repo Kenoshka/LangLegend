@@ -47,3 +47,7 @@ func _on_confirmation_dialog_confirmed():
 
 func set_diff(diff):
 	DataControl.DATA[DataControl.DIFFICULTY] = diff
+
+
+func _on_button_dev_pressed():
+	get_tree().change_scene_to_file("res://Source/DevMain.tscn")

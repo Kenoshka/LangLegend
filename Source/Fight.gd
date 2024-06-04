@@ -44,11 +44,17 @@ var DODGE_TOPIC = 1
 
 var current_task = null
 
-var enemy_attacks = true
+var enemy_attacks = true:
+	set(val):
+		enemy_attacks = val
+		$Enemy/Anger.visible = val
+
 var player_attacks = false
 
 var rights = 0
 var wrongs = 0
+
+var notify = preload("res://Source/NotifyWindow.tscn")
 
 func _ready():
 	if DataControl.DATA[DataControl.EXP] >= 300:
@@ -72,6 +78,13 @@ func _ready():
 			$Enemy/EnemyHP.add_child(HP_Scene.instantiate())
 		for i in range(player_hp):
 			$Player/PlayerHP.add_child(HP_Scene.instantiate())
+		if DataControl.DATA[DataControl.TUTOR_BATTLE] != true:
+			var notify_scn = notify.instantiate()
+			notify_scn.set_notify_text("Битвы",
+			"Уворачивайтесь и атакуйте! Для победы вам нужно снизить здоровье врага до 0. Обратите внимание - враг атакует, когда возле него находится данная иконка.",
+			load("res://Assets/Tutors/Fight.png"))
+			add_child(notify_scn)
+			DataControl.DATA[DataControl.TUTOR_BATTLE] = true
 		await set_topics()
 		start_turn()
 	else:

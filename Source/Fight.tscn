@@ -1,9 +1,10 @@
-[gd_scene load_steps=20 format=3 uid="uid://ciefkto6njlga"]
+[gd_scene load_steps=24 format=3 uid="uid://ciefkto6njlga"]
 
 [ext_resource type="Script" path="res://Source/Fight.gd" id="1_3wh77"]
 [ext_resource type="Texture2D" uid="uid://cguxeq077fxe4" path="res://Assets/UI/tileSand.png" id="2_j2pku"]
 [ext_resource type="Texture2D" uid="uid://dnvvp40fl2gqy" path="res://Assets/Characters/1.png" id="3_lqp0j"]
 [ext_resource type="Texture2D" uid="uid://mx482r8d1jhy" path="res://Assets/Creatures/3.png" id="3_n02hf"]
+[ext_resource type="Texture2D" uid="uid://cx6jnmw24qy0m" path="res://Assets/Creatures/anger.png" id="4_8xgb5"]
 [ext_resource type="Texture2D" uid="uid://chw5yrhtn2ww0" path="res://Assets/UI/red_button.png" id="5_kayfx"]
 [ext_resource type="Texture2D" uid="uid://ctj8g3oxgptmw" path="res://Assets/UI/blue_button.png" id="6_ga1hq"]
 [ext_resource type="Texture2D" uid="uid://dke2w2l5cajbo" path="res://Assets/UI/red_button_press.png" id="6_ouckl"]
@@ -11,6 +12,44 @@
 [ext_resource type="Texture2D" uid="uid://detw6b3imeut1" path="res://Assets/UI/blue_button_press.png" id="7_abbvs"]
 [ext_resource type="Texture2D" uid="uid://hefajm4ibs2" path="res://Assets/UI/timer_background.png" id="10_kcsvd"]
 [ext_resource type="Texture2D" uid="uid://brfr0v2je1c8t" path="res://Assets/UI/timer.png" id="11_iwj1g"]
+
+[sub_resource type="Animation" id="Animation_2gi87"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_i2o3w"]
+resource_name = "anger"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.5, 0.5), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8kvte"]
+_data = {
+"RESET": SubResource("Animation_2gi87"),
+"anger": SubResource("Animation_i2o3w")
+}
 
 [sub_resource type="Animation" id="Animation_lcuv2"]
 resource_name = "Attack"
@@ -143,9 +182,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_top = -4.45001
-offset_right = 300.0
-offset_bottom = 350.0
+offset_left = -150.0
+offset_top = -354.45
+offset_right = 150.0
+offset_bottom = -6.10352e-05
 grow_horizontal = 2
 grow_vertical = 0
 texture = ExtResource("3_n02hf")
@@ -161,6 +201,24 @@ offset_left = -20.0
 offset_right = 20.0
 offset_bottom = 40.0
 grow_horizontal = 2
+
+[node name="Anger" type="TextureRect" parent="Enemy"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -74.0
+offset_bottom = 74.0
+grow_horizontal = 0
+pivot_offset = Vector2(37, 37)
+texture = ExtResource("4_8xgb5")
+expand_mode = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Enemy/Anger"]
+libraries = {
+"": SubResource("AnimationLibrary_8kvte")
+}
+autoplay = "anger"
 
 [node name="Player" type="Control" parent="."]
 layout_mode = 1
@@ -180,8 +238,8 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = 33.0
-offset_right = 167.0
+offset_left = -67.0
+offset_right = 67.0
 offset_bottom = 212.0
 grow_horizontal = 2
 texture = ExtResource("3_lqp0j")

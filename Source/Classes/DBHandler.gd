@@ -4,17 +4,26 @@ var db : SQLite = SQLite.new()
 
 func _ready():
 	db.foreign_keys = true
-	if FileAccess.file_exists("user://EnglishDatabase.db"):
-		DirAccess.remove_absolute("user://EnglishDatabase.db")
 	db.path = "user://EnglishDatabase.db"
-	db.open_db()
-	database_setup()
+	if FileAccess.file_exists("user://EnglishDatabase.db"):
+		db.open_db()
+	else:
+		db.open_db()
+		database_setup()
+
 
 
 func get_task_type(task_id):
 	db.query_with_bindings("SELECT TaskType FROM Tasks where TaskId = ?", [task_id])
 	return db.query_result[0]["TaskType"]
 
+func get_topic_name(topic_id):
+	db.query_with_bindings("SELECT TopicName FROM Tasks where TopicId = ?", [topic_id])
+	return db.query_result[0]["TopicName"]
+
+
+func remove_task(task_id):
+	db.query_with_bindings("DELETE from Tasks where TaskId = ?", [task_id])
 
 func database_setup():
 	var Types = {
@@ -80,11 +89,6 @@ func database_setup():
 	db.create_table("Tasks", Tasks)
 
 	await insert_data()
-	#for i in range(1, 5):
-		#for q in range(0, 2):
-			#db.query_with_bindings("SELECT * FROM Tasks where TaskTopic = ? and TaskDiff = ?", [i, q])
-			#print(db.query_result.size())
-	#print(db.error_message)
 	db.export_to_json("user://EnglishDatabaseExport")
 
 func insert_data():

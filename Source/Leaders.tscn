@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://bsh7kr2h48jx3"]
+[gd_scene load_steps=7 format=3 uid="uid://bsh7kr2h48jx3"]
 
+[ext_resource type="Script" path="res://Source/Leaders.gd" id="1_wvsak"]
 [ext_resource type="Texture2D" uid="uid://dyfsn43ntumpc" path="res://Assets/UI/tile_wall.png" id="1_y8qw1"]
 [ext_resource type="Texture2D" uid="uid://bo4k403ihkw4y" path="res://Assets/UI/tile_tower.png" id="2_l6gr7"]
 [ext_resource type="FontFile" uid="uid://cibh2hon2txu4" path="res://Assets/Technical/Perun.ttf" id="3_wuhd5"]
+[ext_resource type="PackedScene" uid="uid://dpctt065tpshu" path="res://LeaderLabels.tscn" id="5_2qq35"]
+[ext_resource type="Texture2D" uid="uid://cae3w2tdsew0j" path="res://Assets/UI/yellow_progressbar.png" id="5_5bc6b"]
 
 [node name="Leader" type="Control"]
 layout_mode = 3
@@ -11,6 +14,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_wvsak")
 
 [node name="BG" type="ColorRect" parent="."]
 layout_mode = 1
@@ -78,3 +82,83 @@ theme_override_fonts/font = ExtResource("3_wuhd5")
 theme_override_font_sizes/font_size = 50
 text = "ЛИДЕРЫ"
 metadata/_edit_use_anchors_ = true
+
+[node name="Loading" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -103.5
+offset_top = -25.5
+offset_right = 103.5
+offset_bottom = 25.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("3_wuhd5")
+theme_override_font_sizes/font_size = 50
+text = "Загрузка..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Leaders" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0833333
+anchor_top = 0.19375
+anchor_right = 0.946296
+anchor_bottom = 0.910417
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="LeaderLabels" parent="Leaders" instance=ExtResource("5_2qq35")]
+layout_mode = 2
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+autostart = true
+
+[node name="BackButton" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.951
+anchor_right = 0.5
+anchor_bottom = 0.951
+offset_left = -139.5
+offset_top = -32.96
+offset_right = 139.5
+offset_bottom = 33.04
+grow_horizontal = 2
+grow_vertical = 0
+texture_normal = ExtResource("5_5bc6b")
+stretch_mode = 0
+
+[node name="Loading2" type="Label" parent="BackButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -124.5
+offset_top = -25.5
+offset_right = 124.5
+offset_bottom = 25.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("3_wuhd5")
+theme_override_font_sizes/font_size = 30
+text = "Вернуться"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

@@ -1,0 +1,154 @@
+[gd_scene load_steps=7 format=3 uid="uid://dg01mgbgc84d4"]
+
+[ext_resource type="Texture2D" uid="uid://chw5yrhtn2ww0" path="res://Assets/UI/red_button.png" id="1_cs4vg"]
+[ext_resource type="Script" path="res://Source/DataTestTask.gd" id="1_d4mws"]
+[ext_resource type="Texture2D" uid="uid://dn152coomiitc" path="res://Assets/UI/Cross.png" id="2_vtod7"]
+[ext_resource type="FontFile" uid="uid://cibh2hon2txu4" path="res://Assets/Technical/Perun.ttf" id="4_h2hmd"]
+
+[sub_resource type="FontVariation" id="FontVariation_6ynrk"]
+base_font = ExtResource("4_h2hmd")
+
+[sub_resource type="Theme" id="Theme_m3q1j"]
+Button/font_sizes/font_size = 20
+Button/fonts/font = ExtResource("4_h2hmd")
+Label/font_sizes/font_size = 20
+Label/fonts/font = SubResource("FontVariation_6ynrk")
+
+[node name="DataTestTask" type="Control"]
+custom_minimum_size = Vector2(540, 50)
+layout_mode = 3
+anchor_right = 1.0
+anchor_bottom = 0.0520833
+grow_horizontal = 2
+script = ExtResource("1_d4mws")
+metadata/_edit_use_anchors_ = true
+
+[node name="TaskText" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.37037
+anchor_bottom = 1.0
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="TaskLabel" type="Label" parent="TaskText"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 10
+text = "Тема"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+clip_text = true
+text_overrun_behavior = 3
+
+[node name="TaskTopic" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.37037
+anchor_right = 0.537037
+anchor_bottom = 1.0
+grow_vertical = 2
+color = Color(0.907942, 0.907942, 0.907942, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="TopicLabel" type="Label" parent="TaskTopic"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 10
+text = "Тема"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+clip_text = true
+text_overrun_behavior = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="TaskAnswers" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.537037
+anchor_right = 0.888889
+anchor_bottom = 1.0
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="AnswersContainer" type="HFlowContainer" parent="TaskAnswers"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="TaskDelete" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.888889
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_vertical = 2
+color = Color(0.907942, 0.907942, 0.907942, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Button" type="TextureButton" parent="TaskDelete"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -15.0
+offset_top = -15.0
+offset_right = 15.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("1_cs4vg")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="CrossTexture" type="TextureRect" parent="TaskDelete/Button"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -9.5
+offset_top = -9.5
+offset_right = 9.5
+offset_bottom = 9.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_vtod7")
+expand_mode = 1
+
+[node name="ConfirmationDialog" type="ConfirmationDialog" parent="."]
+mode = 3
+initial_position = 1
+size = Vector2i(510, 150)
+unresizable = true
+borderless = true
+extend_to_title = true
+theme = SubResource("Theme_m3q1j")
+ok_button_text = "Подтвердить"
+dialog_text = "Вы уверены, что хотите удалить данное задание?"
+dialog_autowrap = true
+cancel_button_text = "Отмена"
+
+[connection signal="pressed" from="TaskDelete/Button" to="." method="_on_button_pressed"]
+[connection signal="canceled" from="ConfirmationDialog" to="." method="_on_confirmation_dialog_canceled"]
+[connection signal="confirmed" from="ConfirmationDialog" to="." method="_on_confirmation_dialog_confirmed"]

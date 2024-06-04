@@ -19,6 +19,7 @@ var CHARS = [
 
 
 func _ready():
+	check_bd()
 	add_talking()
 	notification_handler()
 	modulate.a = 0
@@ -145,3 +146,8 @@ func _on_leaders_button_pressed():
 	tw.tween_property(self, "modulate:a", 0.0, 0.5)
 	await tw.finished
 	get_tree().change_scene_to_file("res://Source/Leaders.tscn")
+
+func check_bd():
+	DbHandler.db.query("select * from Tasks")
+	if DbHandler.db.query_result.size() == 0:
+		await DbHandler.db.import_from_json("user://EnglishDatabaseExport")

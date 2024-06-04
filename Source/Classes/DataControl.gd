@@ -6,26 +6,25 @@ enum {
 	PLAYER_NAME,
 	AVATAR,
 	PROFILE_CREATED,
-	TUTORIAL_ENDED,
 	START_DATE,
 	DIFFICULTY,
 	EXP,
 	DAILY_USUAL,
-	DAILY_BLITZ
+	DAILY_BLITZ,
+	TUTOR_BATTLE
 }
 
-# Возможно добавить счётчик Right_in_row, чтоб при 100 правильных ответах предлагать повысить уровень сложности.
 
 var DATA = {
-	PLAYER_NAME:"123",
+	PLAYER_NAME:"",
 	AVATAR:0,
 	PROFILE_CREATED:false,
-	TUTORIAL_ENDED:false,
 	START_DATE:Time.get_unix_time_from_system(),
 	DIFFICULTY:0,
 	EXP: 100,
 	DAILY_USUAL: "2020-12-12",
-	DAILY_BLITZ: "2020-12-12"
+	DAILY_BLITZ: "2020-12-12",
+	TUTOR_BATTLE:false,
 }
 
 
@@ -101,3 +100,6 @@ func sort_descending(a, b):
 	if a[2] < b[2]:
 		return true
 	return false
+
+
+

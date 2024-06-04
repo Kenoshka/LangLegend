@@ -67,14 +67,14 @@ corner_radius_bottom_left = 20
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dvrpc"]
 
-[sub_resource type="FontVariation" id="FontVariation_6ynrk"]
+[sub_resource type="FontVariation" id="FontVariation_kj1k0"]
 base_font = ExtResource("2_vxdow")
 
 [sub_resource type="Theme" id="Theme_885n6"]
 Button/font_sizes/font_size = 20
 Button/fonts/font = ExtResource("2_vxdow")
 Label/font_sizes/font_size = 20
-Label/fonts/font = SubResource("FontVariation_6ynrk")
+Label/fonts/font = SubResource("FontVariation_kj1k0")
 
 [node name="Settings" type="Control"]
 layout_mode = 3
@@ -184,6 +184,19 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_dvrpc")
 text = "   СБРОСИТЬ ПРОГРЕСС   "
 metadata/_edit_use_anchors_ = true
 
+[node name="ButtonDev" type="Button" parent="SettingsContainer"]
+custom_minimum_size = Vector2(150, 60)
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_fonts/font = ExtResource("2_vxdow")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_tkj0k")
+theme_override_styles/hover = SubResource("StyleBoxFlat_bk8e8")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_31sbr")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_dvrpc")
+text = "НАСТРОЙКА БАЗЫ ДАННЫХ"
+metadata/_edit_use_anchors_ = true
+
 [node name="Gap6" type="TextureRect" parent="SettingsContainer"]
 layout_mode = 2
 texture = SubResource("GradientTexture2D_lpbhu")
@@ -219,6 +232,7 @@ cancel_button_text = "Отмена"
 [connection signal="pressed" from="SettingsContainer/ButtonMedium" to="." method="set_diff" binds= [0]]
 [connection signal="pressed" from="SettingsContainer/ButtonHard" to="." method="set_diff" binds= [1]]
 [connection signal="pressed" from="SettingsContainer/ButtonReset" to="." method="_on_button_reset_pressed"]
+[connection signal="pressed" from="SettingsContainer/ButtonDev" to="." method="_on_button_dev_pressed"]
 [connection signal="pressed" from="SettingsContainer/BackButton" to="." method="_on_back_button_pressed"]
 [connection signal="canceled" from="ConfirmationDialog" to="." method="_on_confirmation_dialog_canceled"]
 [connection signal="confirmed" from="ConfirmationDialog" to="." method="_on_confirmation_dialog_confirmed"]

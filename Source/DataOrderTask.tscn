@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://34ylk8k8r2sw"]
+
+[node name="DataOrderTask" type="Control"]
+layout_mode = 3
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2

@@ -14,7 +14,7 @@ var ICONS = [
 
 
 var IS_DAILY = true
-var IS_TRAIN = true
+var IS_TRAIN = false
 
 var TYPE_CHOSEN = USUAL
 
