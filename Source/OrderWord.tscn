@@ -10,8 +10,8 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
-[sub_resource type="LabelSettings" id="LabelSettings_4fijl"]
-font_size = 14
+[sub_resource type="LabelSettings" id="LabelSettings_g5g0k"]
+font_size = 22
 font_color = Color(0, 0, 0, 1)
 
 [node name="OrderWord" type="MarginContainer"]
@@ -37,6 +37,6 @@ theme_override_fonts/font = ExtResource("1_blats")
 theme_override_font_sizes/font_size = 12
 theme_override_styles/normal = SubResource("StyleBoxFlat_u0beu")
 text = "1"
-label_settings = SubResource("LabelSettings_4fijl")
+label_settings = SubResource("LabelSettings_g5g0k")
 horizontal_alignment = 1
 vertical_alignment = 1

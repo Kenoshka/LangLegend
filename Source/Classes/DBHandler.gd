@@ -1,6 +1,8 @@
 extends Node
 
 var db : SQLite = SQLite.new()
+var TASK_TO_EDIT = -1
+
 
 func _ready():
 	db.foreign_keys = true

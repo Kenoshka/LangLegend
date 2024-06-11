@@ -1,7 +1,173 @@
-[gd_scene format=3 uid="uid://34ylk8k8r2sw"]
+[gd_scene load_steps=9 format=3 uid="uid://34ylk8k8r2sw"]
+
+[ext_resource type="Texture2D" uid="uid://chw5yrhtn2ww0" path="res://Assets/UI/red_button.png" id="1_4uv57"]
+[ext_resource type="Script" path="res://Source/DataOrderTask.gd" id="1_65fyy"]
+[ext_resource type="Texture2D" uid="uid://dn152coomiitc" path="res://Assets/UI/Cross.png" id="2_wtwla"]
+[ext_resource type="FontFile" uid="uid://cibh2hon2txu4" path="res://Assets/Technical/Perun.ttf" id="3_40xh7"]
+[ext_resource type="Texture2D" uid="uid://ceqkseap3fuot" path="res://Assets/UI/green_button.png" id="4_e4aj4"]
+[ext_resource type="Texture2D" uid="uid://rqu2r85v7kwy" path="res://Assets/UI/edit_icon.png" id="5_ht3lx"]
+
+[sub_resource type="FontVariation" id="FontVariation_6ynrk"]
+base_font = ExtResource("3_40xh7")
+
+[sub_resource type="Theme" id="Theme_axcp0"]
+Button/font_sizes/font_size = 20
+Button/fonts/font = ExtResource("3_40xh7")
+Label/font_sizes/font_size = 20
+Label/fonts/font = SubResource("FontVariation_6ynrk")
 
 [node name="DataOrderTask" type="Control"]
+custom_minimum_size = Vector2(540, 72)
 layout_mode = 3
-anchors_preset = 10
 anchor_right = 1.0
+anchor_bottom = 0.075
 grow_horizontal = 2
+script = ExtResource("1_65fyy")
+metadata/_edit_use_anchors_ = true
+metadata/_edit_group_ = true
+
+[node name="TaskText" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.722222
+anchor_bottom = 1.0
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="TaskLabel" type="Label" parent="TaskText"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 14
+text = "Тема"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+clip_text = true
+text_overrun_behavior = 3
+
+[node name="TaskTopic" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.722222
+anchor_right = 0.888889
+anchor_bottom = 1.0
+grow_vertical = 2
+color = Color(0.907942, 0.907942, 0.907942, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="TopicLabel" type="Label" parent="TaskTopic"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 10
+text = "Тема"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+clip_text = true
+text_overrun_behavior = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="TaskDelete" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.888889
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Button" type="TextureButton" parent="TaskDelete"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.736
+anchor_right = 0.5
+anchor_bottom = 0.736
+offset_left = -15.0
+offset_top = -14.992
+offset_right = 15.0
+offset_bottom = 15.008
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("1_4uv57")
+ignore_texture_size = true
+stretch_mode = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="CrossTexture" type="TextureRect" parent="TaskDelete/Button"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -9.5
+offset_top = -9.5
+offset_right = 9.5
+offset_bottom = 9.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_wtwla")
+expand_mode = 1
+
+[node name="EditButton" type="TextureButton" parent="TaskDelete"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.263889
+anchor_right = 0.5
+anchor_bottom = 0.263889
+offset_left = -15.0
+offset_top = -15.0
+offset_right = 15.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("4_e4aj4")
+ignore_texture_size = true
+stretch_mode = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="CrossTexture" type="TextureRect" parent="TaskDelete/EditButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -9.5
+offset_top = -9.5
+offset_right = 9.5
+offset_bottom = 9.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_ht3lx")
+expand_mode = 1
+
+[node name="ConfirmationDialog" type="ConfirmationDialog" parent="."]
+mode = 3
+initial_position = 1
+size = Vector2i(510, 150)
+unresizable = true
+borderless = true
+extend_to_title = true
+theme = SubResource("Theme_axcp0")
+ok_button_text = "Подтвердить"
+dialog_text = "Вы уверены, что хотите удалить данное задание?"
+dialog_autowrap = true
+cancel_button_text = "Отмена"
+
+[connection signal="pressed" from="TaskDelete/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="TaskDelete/EditButton" to="." method="_on_edit_button_pressed"]

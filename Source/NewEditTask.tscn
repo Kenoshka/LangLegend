@@ -1,0 +1,214 @@
+[gd_scene load_steps=14 format=3 uid="uid://w00uy4yww02l"]
+
+[ext_resource type="FontFile" uid="uid://cibh2hon2txu4" path="res://Assets/Technical/Perun.ttf" id="1_nqixg"]
+[ext_resource type="Script" path="res://Source/NewEditTask.gd" id="1_t8h1e"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7b65i"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6nryr"]
+
+[sub_resource type="Gradient" id="Gradient_ba5ch"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ko3pk"]
+gradient = SubResource("Gradient_ba5ch")
+height = 30
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mcnv3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2m24n"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_77ldy"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q7xot"]
+bg_color = Color(0.364706, 0.364706, 0.364706, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m1mtq"]
+bg_color = Color(0.411765, 0.411765, 0.411765, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v13hc"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_isy02"]
+
+[node name="NewEditTask" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_t8h1e")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -225.0
+offset_top = -460.0
+offset_right = 225.0
+offset_bottom = 402.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+custom_minimum_size = Vector2(450, 0)
+layout_mode = 2
+
+[node name="TaskQuestion" type="Label" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("1_nqixg")
+theme_override_font_sizes/font_size = 25
+text = "Введите текст задания"
+autowrap_mode = 3
+
+[node name="TaskEdit" type="TextEdit" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(450, 150)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_placeholder_color = Color(0, 0, 0, 0.329412)
+theme_override_fonts/font = ExtResource("1_nqixg")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxEmpty_7b65i")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_6nryr")
+placeholder_text = "Текст задания..."
+wrap_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Gap3" type="TextureRect" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+texture = SubResource("GradientTexture2D_ko3pk")
+
+[node name="IsTest" type="CheckBox" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_nqixg")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxEmpty_mcnv3")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_mcnv3")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_mcnv3")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_mcnv3")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_mcnv3")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_mcnv3")
+button_pressed = true
+text = "Тестовый"
+
+[node name="Gap7" type="TextureRect" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+texture = SubResource("GradientTexture2D_ko3pk")
+
+[node name="ItemList" type="ItemList" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 18
+item_count = 3
+item_0/text = "Фразовые глаголы"
+item_1/text = "Синонимы"
+item_2/text = "Грамматика"
+
+[node name="Gap4" type="TextureRect" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+texture = SubResource("GradientTexture2D_ko3pk")
+
+[node name="TaskQuestion3" type="Label" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("1_nqixg")
+theme_override_font_sizes/font_size = 25
+text = "Введите вариант ответа"
+autowrap_mode = 3
+
+[node name="AnswerEdit" type="LineEdit" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_placeholder_color = Color(0, 0, 0, 0.329412)
+theme_override_fonts/font = ExtResource("1_nqixg")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxEmpty_2m24n")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_77ldy")
+placeholder_text = "Ответ..."
+max_length = 18
+metadata/_edit_use_anchors_ = true
+
+[node name="Gap5" type="TextureRect" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+texture = SubResource("GradientTexture2D_ko3pk")
+
+[node name="ButtonAdd" type="Button" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(150, 60)
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_fonts/font = ExtResource("1_nqixg")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_q7xot")
+theme_override_styles/hover = SubResource("StyleBoxFlat_m1mtq")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_v13hc")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_isy02")
+toggle_mode = true
+button_pressed = true
+text = "Добавить"
+metadata/_edit_use_anchors_ = true
+
+[node name="Answers" type="VBoxContainer" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Gap6" type="TextureRect" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+texture = SubResource("GradientTexture2D_ko3pk")
+
+[node name="ButtonSave" type="Button" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(150, 60)
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_fonts/font = ExtResource("1_nqixg")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_q7xot")
+theme_override_styles/hover = SubResource("StyleBoxFlat_m1mtq")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_v13hc")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_isy02")
+toggle_mode = true
+button_pressed = true
+text = "Сохранить"
+metadata/_edit_use_anchors_ = true
+
+[node name="AcceptDialog" type="AcceptDialog" parent="."]
+title = ""
+initial_position = 2
+size = Vector2i(277, 100)
+dialog_text = "Не все данные были заполнены"
+
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/IsTest" to="." method="_on_check_box_pressed"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/ButtonAdd" to="." method="_on_button_add_pressed"]
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/ButtonSave" to="." method="_on_button_save_pressed"]

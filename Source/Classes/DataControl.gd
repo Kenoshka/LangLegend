@@ -21,7 +21,7 @@ var DATA = {
 	PROFILE_CREATED:false,
 	START_DATE:Time.get_unix_time_from_system(),
 	DIFFICULTY:0,
-	EXP: 100,
+	EXP: 300,
 	DAILY_USUAL: "2020-12-12",
 	DAILY_BLITZ: "2020-12-12",
 	TUTOR_BATTLE:false,
