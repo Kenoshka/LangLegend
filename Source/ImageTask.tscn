@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://cd73xwpktc4rf"]
+[gd_scene load_steps=5 format=3 uid="uid://cd73xwpktc4rf"]
 
-[ext_resource type="Texture2D" uid="uid://ds8qrygu2yl2l" path="res://Assets/Images/rope.jpg" id="2_jw5n7"]
+[ext_resource type="Script" path="res://Source/ImageTask.gd" id="1_3huah"]
 [ext_resource type="FontFile" uid="uid://cibh2hon2txu4" path="res://Assets/Technical/Perun.ttf" id="2_mtodf"]
-[ext_resource type="PackedScene" uid="uid://cy0bkkmggrdhs" path="res://Source/AnswerButton.tscn" id="3_py2qm"]
 
 [sub_resource type="Gradient" id="Gradient_ba5ch"]
 offsets = PackedFloat32Array(0)
@@ -19,6 +18,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_3huah")
 
 [node name="BG" type="ColorRect" parent="."]
 layout_mode = 1
@@ -60,12 +60,11 @@ autowrap_mode = 3
 layout_mode = 2
 texture = SubResource("GradientTexture2D_vxr33")
 
-[node name="TaskText" type="TextureRect" parent="VBoxContainer"]
+[node name="TaskImage" type="TextureRect" parent="VBoxContainer"]
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 3
-texture = ExtResource("2_jw5n7")
 expand_mode = 1
 stretch_mode = 5
 
@@ -80,22 +79,6 @@ size_flags_vertical = 4
 theme_override_constants/h_separation = 30
 theme_override_constants/v_separation = 30
 columns = 2
-
-[node name="AnswerButton" parent="VBoxContainer/AnswersContainer" instance=ExtResource("3_py2qm")]
-layout_mode = 2
-text = "fabric"
-
-[node name="AnswerButton2" parent="VBoxContainer/AnswersContainer" instance=ExtResource("3_py2qm")]
-layout_mode = 2
-text = "glue"
-
-[node name="AnswerButton3" parent="VBoxContainer/AnswersContainer" instance=ExtResource("3_py2qm")]
-layout_mode = 2
-text = "stick"
-
-[node name="AnswerButton4" parent="VBoxContainer/AnswersContainer" instance=ExtResource("3_py2qm")]
-layout_mode = 2
-text = "rope"
 
 [node name="AnswerColor" type="ColorRect" parent="."]
 visible = false

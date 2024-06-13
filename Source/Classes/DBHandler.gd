@@ -96,6 +96,7 @@ func database_setup():
 func insert_data():
 	db.insert_row("Types", {"TypeName":"Test"}) # 1
 	db.insert_row("Types", {"TypeName":"Order"}) # 2
+	db.insert_row("Types", {"TypeName":"Image"}) # 3
 
 	db.insert_row("Difficulties", {"DiffId":0})
 	db.insert_row("Difficulties", {"DiffId":1})
@@ -104,6 +105,7 @@ func insert_data():
 	db.insert_row("Topics", {"TopicName":"Синонимы"}) # 2
 	db.insert_row("Topics", {"TopicName":"Построение предложений"}) # 3
 	db.insert_row("Topics", {"TopicName":"Грамматика"}) # 4
+	db.insert_row("Topics", {"TopicName":"Изображения"}) # 5
 
 
 	db.insert_row("Tasks", {
@@ -1433,5 +1435,257 @@ func insert_data():
 		"TaskText":"he tried to be serious but he couldn’t help laughing",
 		"TaskAnswers":"",
 		"TaskRightAnswer":"he tried to be serious but he couldn’t help laughing"}
+	)
+	db.insert_row("Tasks", {
+		"TaskDiff":0,
+		"TaskTopic":5,
+		"TaskType":3,
+		"TaskQuestion":"Выберите слово, подходящее к картинке",
+		"TaskText":"rope.jpg",
+		"TaskAnswers":"fabric_glue_stick_rope",
+		"TaskRightAnswer":"3"}
+	)
+	db.insert_row("Tasks", {
+		"TaskDiff":0,
+		"TaskTopic":5,
+		"TaskType":3,
+		"TaskQuestion":"Выберите слово, подходящее к картинке",
+		"TaskText":"hammer.jpg",
+		"TaskAnswers":"nail_hammer_axe_pickaxe",
+		"TaskRightAnswer":"1"}
+	)
+	db.insert_row("Tasks", {
+		"TaskDiff":0,
+		"TaskTopic":5,
+		"TaskType":3,
+		"TaskQuestion":"Выберите слово, подходящее к картинке",
+		"TaskText":"purse.png",
+		"TaskAnswers":"purse_wallet_backpack_case",
+		"TaskRightAnswer":"0"}
+	)
+	db.insert_row("Tasks", {
+		"TaskDiff":0,
+		"TaskTopic":5,
+		"TaskType":3,
+		"TaskQuestion":"Выберите слово, подходящее к картинке",
+		"TaskText":"broom.jpg",
+		"TaskAnswers":"brush_branch_broom_rag",
+		"TaskRightAnswer":"2"}
+	)
+	db.insert_row("Tasks", {
+		"TaskDiff":0,
+		"TaskTopic":5,
+		"TaskType":3,
+		"TaskQuestion":"Выберите слово, подходящее к картинке",
+		"TaskText":"bench.jpg",
+		"TaskAnswers":"bench_chair_sofa_seat",
+		"TaskRightAnswer":"0"}
+	)
+	db.insert_row("Tasks", {
+		"TaskDiff":0,
+		"TaskTopic":5,
+		"TaskType":3,
+		"TaskQuestion":"Выберите слово, подходящее к картинке",
+		"TaskText":"tent.jpg",
+		"TaskAnswers":"roof_fabric_net_tent",
+		"TaskRightAnswer":"3"}
+	)
+	db.insert_row("Tasks", {
+		"TaskDiff":0,
+		"TaskTopic":5,
+		"TaskType":3,
+		"TaskQuestion":"Выберите слово, подходящее к картинке",
+		"TaskText":"ruler.jpg",
+		"TaskAnswers":"glass_ruler_counter_pillar",
+		"TaskRightAnswer":"1"}
+	)
+	db.insert_row("Tasks", {
+		"TaskDiff":0,
+		"TaskTopic":5,
+		"TaskType":3,
+		"TaskQuestion":"Выберите слово, подходящее к картинке",
+		"TaskText":"staircase.png",
+		"TaskAnswers":"ladder_floor_staircase_spiral",
+		"TaskRightAnswer":"2"}
+	)
+	db.insert_row("Tasks", {
+		"TaskDiff":0,
+		"TaskTopic":5,
+		"TaskType":3,
+		"TaskQuestion":"Выберите слово, подходящее к картинке",
+		"TaskText":"bucket.jpg",
+		"TaskAnswers":"liquid_vessel_mug_bucket",
+		"TaskRightAnswer":"3"}
+	)
+	db.insert_row("Tasks", {
+		"TaskDiff":0,
+		"TaskTopic":5,
+		"TaskType":3,
+		"TaskQuestion":"Выберите слово, подходящее к картинке",
+		"TaskText":"garlic.jpg",
+		"TaskAnswers":"onion_garlic_cucumber_lettuce",
+		"TaskRightAnswer":"1"}
+	)
+	db.insert_row("Tasks", {
+		"TaskDiff":0,
+		"TaskTopic":5,
+		"TaskType":3,
+		"TaskQuestion":"Выберите слово, подходящее к картинке",
+		"TaskText":"laptop.jpg",
+		"TaskAnswers":"notebook_tablet_laptop_keyboard",
+		"TaskRightAnswer":"2"}
+	)
+	db.insert_row("Tasks", {
+		"TaskDiff":0,
+		"TaskTopic":5,
+		"TaskType":3,
+		"TaskQuestion":"Выберите слово, подходящее к картинке",
+		"TaskText":"shell.jpg",
+		"TaskAnswers":"sand_shell_oyster_bone",
+		"TaskRightAnswer":"1"}
+	)
+	db.insert_row("Tasks", {
+		"TaskDiff":0,
+		"TaskTopic":5,
+		"TaskType":3,
+		"TaskQuestion":"Выберите слово, подходящее к картинке",
+		"TaskText":"rod.jpg",
+		"TaskAnswers":"rod_lure_boat_tape",
+		"TaskRightAnswer":"0"}
+	)
+	db.insert_row("Tasks", {
+		"TaskDiff":0,
+		"TaskTopic":5,
+		"TaskType":3,
+		"TaskQuestion":"Выберите слово, подходящее к картинке",
+		"TaskText":"tire.jpg",
+		"TaskAnswers":"wheel_engine_tire_spin",
+		"TaskRightAnswer":"2"}
+	)
+	db.insert_row("Tasks", {
+		"TaskDiff":1,
+		"TaskTopic":5,
+		"TaskType":3,
+		"TaskQuestion":"Выберите слово, подходящее к картинке",
+		"TaskText":"spear.jpg",
+		"TaskAnswers":"arrow_bolt_spear_cannon",
+		"TaskRightAnswer":"2"}
+	)
+	db.insert_row("Tasks", {
+		"TaskDiff":1,
+		"TaskTopic":5,
+		"TaskType":3,
+		"TaskQuestion":"Выберите слово, подходящее к картинке",
+		"TaskText":"windmill.jpg",
+		"TaskAnswers":"wheat_valley_farm_windmill",
+		"TaskRightAnswer":"3"}
+	)
+	db.insert_row("Tasks", {
+		"TaskDiff":1,
+		"TaskTopic":5,
+		"TaskType":3,
+		"TaskQuestion":"Выберите слово, подходящее к картинке",
+		"TaskText":"rook.jpg",
+		"TaskAnswers":"rook_bishop_pawn_knight",
+		"TaskRightAnswer":"0"}
+	)
+	db.insert_row("Tasks", {
+		"TaskDiff":1,
+		"TaskTopic":5,
+		"TaskType":3,
+		"TaskQuestion":"Выберите слово, подходящее к картинке",
+		"TaskText":"spade.jpg",
+		"TaskAnswers":"club_heart_diamond_spade",
+		"TaskRightAnswer":"3"}
+	)
+	db.insert_row("Tasks", {
+		"TaskDiff":1,
+		"TaskTopic":5,
+		"TaskType":3,
+		"TaskQuestion":"Выберите слово, подходящее к картинке",
+		"TaskText":"parcel.jpg",
+		"TaskAnswers":"parcel_letter_scroll_pile",
+		"TaskRightAnswer":"0"}
+	)
+	db.insert_row("Tasks", {
+		"TaskDiff":1,
+		"TaskTopic":5,
+		"TaskType":3,
+		"TaskQuestion":"Выберите слово, подходящее к картинке",
+		"TaskText":"chimney.jpg",
+		"TaskAnswers":"oven_chimney_bowl_bonfire",
+		"TaskRightAnswer":"1"}
+	)
+	db.insert_row("Tasks", {
+		"TaskDiff":1,
+		"TaskTopic":5,
+		"TaskType":3,
+		"TaskQuestion":"Выберите слово, подходящее к картинке",
+		"TaskText":"caterpillar.jpg",
+		"TaskAnswers":"bug_dragonfly_caterpillar_mantis",
+		"TaskRightAnswer":"2"}
+	)
+	db.insert_row("Tasks", {
+		"TaskDiff":1,
+		"TaskTopic":5,
+		"TaskType":3,
+		"TaskQuestion":"Выберите слово, подходящее к картинке",
+		"TaskText":"vault.jpg",
+		"TaskAnswers":"attic_basement_gate_vault",
+		"TaskRightAnswer":"3"}
+	)
+	db.insert_row("Tasks", {
+		"TaskDiff":1,
+		"TaskTopic":5,
+		"TaskType":3,
+		"TaskQuestion":"Выберите слово, подходящее к картинке",
+		"TaskText":"mine.jpg",
+		"TaskAnswers":"cave_mountain_mine_ore",
+		"TaskRightAnswer":"2"}
+	)
+	db.insert_row("Tasks", {
+		"TaskDiff":1,
+		"TaskTopic":5,
+		"TaskType":3,
+		"TaskQuestion":"Выберите слово, подходящее к картинке",
+		"TaskText":"ink.jpg",
+		"TaskAnswers":"paint_ink_draw_brush",
+		"TaskRightAnswer":"1"}
+	)
+	db.insert_row("Tasks", {
+		"TaskDiff":1,
+		"TaskTopic":5,
+		"TaskType":3,
+		"TaskQuestion":"Выберите слово, подходящее к картинке",
+		"TaskText":"satellite.jpg",
+		"TaskAnswers":"orbit_satellite_station_basement",
+		"TaskRightAnswer":"1"}
+	)
+	db.insert_row("Tasks", {
+		"TaskDiff":1,
+		"TaskTopic":5,
+		"TaskType":3,
+		"TaskQuestion":"Выберите слово, подходящее к картинке",
+		"TaskText":"squirrel.jpg",
+		"TaskAnswers":"possum_otter_squirrel_marmot",
+		"TaskRightAnswer":"2"}
+	)
+	db.insert_row("Tasks", {
+		"TaskDiff":1,
+		"TaskTopic":5,
+		"TaskType":3,
+		"TaskQuestion":"Выберите слово, подходящее к картинке",
+		"TaskText":"ironning.jpg",
+		"TaskAnswers":"ironing_sweeping_cleaning_bleaching",
+		"TaskRightAnswer":"0"}
+	)
+	db.insert_row("Tasks", {
+		"TaskDiff":1,
+		"TaskTopic":5,
+		"TaskType":3,
+		"TaskQuestion":"Выберите слово, подходящее к картинке",
+		"TaskText":"wrench.png",
+		"TaskAnswers":"gear_wrench_screw_pliers",
+		"TaskRightAnswer":"1"}
 	)
 

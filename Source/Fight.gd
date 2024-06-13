@@ -16,6 +16,7 @@ var HP_Scene = preload("res://Source/HPBar.tscn")
 
 var TestTask_Scene = preload("res://Source/TestTask.tscn")
 var OrderTask_Scene = preload("res://Source/WordOrderTask.tscn")
+var ImageTask_Scene = preload("res://Source/ImageTask.tscn")
 
 var BACK_CHARS = [
 	preload("res://Assets/Characters/1_back.png"),
@@ -31,8 +32,8 @@ var ENEMIES = [
 	preload("res://Assets/Creatures/4.png"),
 ]
 
-var ATTACK_TOPICS = [1, 2, 4]
-var DODGE_TOPICS = [1, 2, 4]
+var ATTACK_TOPICS = [1, 2, 4, 5]
+var DODGE_TOPICS = [1, 2, 4, 5]
 
 var ATTACK_TASKS = []
 var DODGE_TASKS = []
@@ -110,6 +111,8 @@ func start_blitz():
 		task_scene = TestTask_Scene.instantiate()
 	elif DbHandler.get_task_type(task_id) == 2:
 		task_scene = OrderTask_Scene.instantiate()
+	elif DbHandler.get_task_type(task_id) == 3:
+		task_scene = ImageTask_Scene.instantiate()
 	task_scene.TASK_ID = task_id
 	task_scene.TWEEN_TIME = 0.3
 	TASKS_BANK.erase(task_id)
@@ -207,6 +210,8 @@ func _on_attack_button_pressed():
 		task_scene = TestTask_Scene.instantiate()
 	elif DbHandler.get_task_type(task_id) == 2:
 		task_scene = OrderTask_Scene.instantiate()
+	elif DbHandler.get_task_type(task_id) == 3:
+		task_scene = ImageTask_Scene.instantiate()
 	task_scene.TASK_ID = task_id
 	ATTACK_TASKS.erase(task_id)
 	add_child(task_scene)
@@ -221,6 +226,8 @@ func _on_dodge_button_pressed():
 		task_scene = TestTask_Scene.instantiate()
 	elif DbHandler.get_task_type(task_id) == 2:
 		task_scene = OrderTask_Scene.instantiate()
+	elif DbHandler.get_task_type(task_id) == 3:
+		task_scene = ImageTask_Scene.instantiate()
 	task_scene.TASK_ID = task_id
 	DODGE_TASKS.erase(task_id)
 	add_child(task_scene)
