@@ -7,24 +7,34 @@ enum {
 	AVATAR,
 	PROFILE_CREATED,
 	START_DATE,
+	START_DATE_STRING,
 	DIFFICULTY,
 	EXP,
 	DAILY_USUAL,
 	DAILY_BLITZ,
-	TUTOR_BATTLE
+	TUTOR_BATTLE,
+	MEDALS,
+	BLITZ_RIGHTS,
+	DIALOGS_READ,
+	MONSTERS_BEATEN,
 }
 
 
 var DATA = {
-	PLAYER_NAME:"",
+	PLAYER_NAME:"Hehe",
 	AVATAR:0,
 	PROFILE_CREATED:false,
 	START_DATE:Time.get_unix_time_from_system(),
+	START_DATE_STRING:Time.get_datetime_string_from_system(),
 	DIFFICULTY:0,
-	EXP: 300,
+	EXP: 100,
 	DAILY_USUAL: "2020-12-12",
 	DAILY_BLITZ: "2020-12-12",
 	TUTOR_BATTLE:false,
+	MEDALS:[0],
+	BLITZ_RIGHTS: 0,
+	DIALOGS_READ:0,
+	MONSTERS_BEATEN:0
 }
 
 
@@ -38,7 +48,12 @@ func load_data():
 			for i in LOADED_DATA.keys():
 				DATA[int(i)] = LOADED_DATA[i]
 			DATA[AVATAR] = int(clamp(DATA[AVATAR], 0, 3))
-			DATA[DIFFICULTY] = int(clamp(DATA[DIFFICULTY], 0, 2))
+			DATA[DIFFICULTY] = int(clamp(DATA[DIFFICULTY], 0, 1))
+			DATA[BLITZ_RIGHTS] = int(DATA[BLITZ_RIGHTS])
+			var new_arr = []
+			for i in DATA[MEDALS]:
+				new_arr.append(int(i))
+			DATA[MEDALS] = new_arr
 		else:
 			print(err) # TODO: Обработку ошибок в игре
 	else:

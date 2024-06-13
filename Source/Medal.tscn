@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://b75ywtcitnmkd"]
+
+[ext_resource type="Script" path="res://Source/Medal.gd" id="1_ar26s"]
+
+[node name="Medal" type="TextureButton"]
+custom_minimum_size = Vector2(150, 150)
+anchors_preset = -1
+anchor_right = 0.277778
+anchor_bottom = 0.15625
+ignore_texture_size = true
+stretch_mode = 5
+script = ExtResource("1_ar26s")
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

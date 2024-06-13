@@ -23,6 +23,7 @@ DataControl="*res://Source/Classes/DataControl.gd"
 FightHandler="*res://Source/Classes/FightHandler.gd"
 DbHandler="*res://Source/Classes/DBHandler.gd"
 TalksData="*res://Source/Classes/TalksData.gd"
+Medals="*res://Source/Classes/Medals.gd"
 
 [display]
 

@@ -89,6 +89,7 @@ func _ready():
 		await set_topics()
 		start_turn()
 	else:
+		$Exit.visible = false
 		$Enemy.visible = false
 		$BlitzUI.visible = true
 		$ButtonsContainer.visible = false
@@ -151,6 +152,8 @@ func game_over(win):
 			DataControl.DATA[DataControl.EXP] += 50
 			FightHandler.NOTIFY.append("Хорошая работа!")
 			if FightHandler.TYPE_CHOSEN == FightHandler.USUAL:
+				DataControl.DATA[DataControl.MONSTERS_BEATEN] += 1
+				Medals.check_monsters_medals()
 				DataControl.DATA[DataControl.DAILY_USUAL] = Time.get_date_string_from_system()
 				FightHandler.NOTIFY.append("Вы получаете 50 очков опыта.")
 			if FightHandler.TYPE_CHOSEN == FightHandler.BLITZ:
@@ -196,7 +199,7 @@ func set_evade_bank():
 
 func set_tasks_bank():
 	DbHandler.db.query_with_bindings(
-		"SELECT * FROM Tasks where TaskTopic != 3 and TaskDiff = ?", [ATTACK_TOPIC, DataControl.DATA[DataControl.DIFFICULTY]]
+		"SELECT * FROM Tasks where TaskTopic != 3 and TaskTopic != 5 and TaskDiff = ?", [ATTACK_TOPIC, DataControl.DATA[DataControl.DIFFICULTY]]
 	)
 	for task in DbHandler.db.query_result:
 		TASKS_BANK.append(task["TaskId"])
@@ -240,6 +243,8 @@ func answer_handler(is_true):
 	else:
 		if is_true:
 			rights += 1
+			DataControl.DATA[DataControl.BLITZ_RIGHTS] += 1
+			Medals.check_blitz_medals()
 		else:
 			wrongs +=1
 		$BlitzUI/Rights.text = str(rights)
@@ -270,3 +275,8 @@ func post_answer_actions(is_true):
 	await $PlayerAnimation.animation_finished
 	start_turn()
 
+
+
+func _on_exit_pressed():
+	await create_tween().tween_property(self, "modulate:a", 0.0, 0.5).finished
+	get_tree().change_scene_to_file("res://Source/Main.tscn")

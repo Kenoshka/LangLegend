@@ -10,6 +10,9 @@ var talk_button_scene = preload("res://Source/TalkButton.tscn")
 
 var talk_scene = preload("res://Source/TalkScene.tscn")
 
+var medal_scene = preload("res://Source/Medal.tscn")
+
+
 var CHARS = [
 	preload("res://Assets/Characters/1.png"),
 	preload("res://Assets/Characters/2.png"),
@@ -17,8 +20,8 @@ var CHARS = [
 	preload("res://Assets/Characters/4.png")
 ]
 
-
 func _ready():
+	set_medals()
 	check_bd()
 	add_talking()
 	notification_handler()
@@ -150,4 +153,25 @@ func _on_leaders_button_pressed():
 func check_bd():
 	DbHandler.db.query("select * from Tasks")
 	if DbHandler.db.query_result.size() == 0:
-		await DbHandler.db.import_from_json("user://EnglishDatabaseExport")
+		DbHandler.db.import_from_json("user://EnglishDatabaseExport")
+
+
+func _on_close_medal_button_pressed():
+	var new_y = get_viewport_rect().size.y
+	create_tween().tween_property($Medals, "position:y", -new_y, 1).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN_OUT)
+
+func set_medals():
+	print(DataControl.DATA[DataControl.MEDALS])
+	for num in Medals.DATA.keys():
+		var medal_scn = medal_scene.instantiate()
+		medal_scn.MEDAL_ID = num
+		print(num)
+		print(DataControl.DATA[DataControl.MEDALS].has(int(num)))
+		if not DataControl.DATA[DataControl.MEDALS].has(num):
+			medal_scn.disable()
+		$Medals/ScrollContainer/MedalContainer.add_child(medal_scn)
+
+
+func _on_trophy_pressed():
+	var new_y = get_viewport_rect().size.y
+	create_tween().tween_property($Medals, "position:y", 0, 1).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN_OUT)

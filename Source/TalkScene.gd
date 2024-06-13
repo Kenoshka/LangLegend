@@ -63,6 +63,8 @@ func _on_lang_timer_timeout():
 
 
 func _on_close_button_pressed():
+	DataControl.DATA[DataControl.DIALOGS_READ] += 1
+	Medals.check_dialogs_medals()
 	modulate.a = 1
 	var tw = create_tween()
 	tw.tween_property(self, "modulate:a", 0.0, 0.5)

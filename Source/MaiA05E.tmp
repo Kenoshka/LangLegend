@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://g4ikqek0qtvo"]
+[gd_scene load_steps=20 format=3 uid="uid://g4ikqek0qtvo"]
 
 [ext_resource type="Script" path="res://Source/Main.gd" id="1_fyseh"]
 [ext_resource type="Texture2D" uid="uid://cyf7uwojyderb" path="res://Assets/UI/green_bg.png" id="2_lrqpj"]
@@ -12,10 +12,8 @@
 [ext_resource type="Texture2D" uid="uid://byuvq5gxtqsrq" path="res://Assets/UI/Church.png" id="9_khixs"]
 [ext_resource type="Texture2D" uid="uid://ktpuj47hjacf" path="res://Assets/UI/House.png" id="10_a2bf6"]
 [ext_resource type="Texture2D" uid="uid://cr1gfmqkt0gmt" path="res://Assets/UI/board_window.png" id="11_tfl4e"]
-[ext_resource type="Texture2D" uid="uid://di0giiuqv4gaq" path="res://Assets/UI/dialogues.png" id="12_6s443"]
 [ext_resource type="Texture2D" uid="uid://dn152coomiitc" path="res://Assets/UI/Cross.png" id="13_1lmx6"]
 [ext_resource type="Texture2D" uid="uid://chw5yrhtn2ww0" path="res://Assets/UI/red_button.png" id="13_30joo"]
-[ext_resource type="Texture2D" uid="uid://doghfgeag4f5u" path="res://Assets/Medals/trophy.png" id="13_hnwkp"]
 [ext_resource type="Texture2D" uid="uid://dke2w2l5cajbo" path="res://Assets/UI/red_button_press.png" id="14_prwk3"]
 [ext_resource type="Texture2D" uid="uid://ctj8g3oxgptmw" path="res://Assets/UI/blue_button.png" id="15_xep43"]
 [ext_resource type="Texture2D" uid="uid://detw6b3imeut1" path="res://Assets/UI/blue_button_press.png" id="16_e0e0c"]
@@ -459,35 +457,6 @@ text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Trophy" type="TextureButton" parent="Profile"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.87963
-anchor_top = 0.0666667
-anchor_right = 0.953704
-anchor_bottom = 0.4
-texture_normal = ExtResource("12_6s443")
-ignore_texture_size = true
-stretch_mode = 5
-metadata/_edit_use_anchors_ = true
-
-[node name="TextureRect" type="TextureRect" parent="Profile/Trophy"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -18.0
-offset_top = -18.0
-offset_right = 18.0
-offset_bottom = 18.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-texture = ExtResource("13_hnwkp")
-expand_mode = 1
-
 [node name="BoardWindow" type="TextureRect" parent="."]
 visible = false
 layout_mode = 1
@@ -683,11 +652,16 @@ vertical_alignment = 1
 
 [node name="Medals" type="Control" parent="."]
 layout_mode = 1
-anchor_top = -1.0
-anchor_right = 1.0
+anchor_left = 0.037
+anchor_top = 0.021
+anchor_right = 0.963
+anchor_bottom = 0.979
+offset_left = 0.0200005
+offset_top = -0.160002
+offset_right = -0.0200195
+offset_bottom = 0.159973
 grow_horizontal = 2
 grow_vertical = 2
-metadata/_edit_use_anchors_ = true
 
 [node name="MedalsBG" type="NinePatchRect" parent="Medals"]
 modulate = Color(0.903598, 0.903598, 0.903598, 1)
@@ -698,6 +672,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("11_tfl4e")
+metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="Medals"]
 layout_mode = 1
@@ -720,6 +695,7 @@ theme_override_font_sizes/font_size = 50
 text = "Медали"
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="CloseMedalButton" type="TextureButton" parent="Medals"]
 layout_mode = 1
@@ -733,6 +709,7 @@ offset_top = -16.26
 offset_right = 16.1
 offset_bottom = 15.74
 texture_normal = SubResource("GradientTexture2D_8pa6e")
+metadata/_edit_use_anchors_ = true
 
 [node name="CrossTexture" type="TextureRect" parent="Medals/CloseMedalButton"]
 layout_mode = 1
@@ -753,15 +730,17 @@ expand_mode = 1
 [node name="ScrollContainer" type="ScrollContainer" parent="Medals"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.05
-anchor_top = 0.159
-anchor_right = 0.95
-anchor_bottom = 0.974
-offset_top = -0.280014
-offset_right = -3.05176e-05
-offset_bottom = -0.0800171
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -225.0
+offset_top = -367.0
+offset_right = 225.0
+offset_bottom = 436.0
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="MedalContainer" type="HFlowContainer" parent="Medals/ScrollContainer"]
 custom_minimum_size = Vector2(450, 803)
@@ -776,7 +755,6 @@ alignment = 1
 [connection signal="pressed" from="City/Leaders/LeadersTexture/LeadersButton" to="." method="_on_leaders_button_pressed"]
 [connection signal="pressed" from="City/Train/TrainTexture/TrainButton" to="." method="_on_train_button_pressed"]
 [connection signal="pressed" from="City/Settings/SettingsTexture/SettingsButton" to="." method="_on_settings_button_pressed"]
-[connection signal="pressed" from="Profile/Trophy" to="." method="_on_trophy_pressed"]
 [connection signal="sort_children" from="BoardWindow/BoardScroll/BoardContainer" to="." method="_on_container_sort_children"]
 [connection signal="pressed" from="BoardWindow/CloseButton" to="." method="_on_close_button_pressed"]
 [connection signal="pressed" from="TrainWindow/TrainBG/CloseTrainButton" to="." method="_on_close_train_button_pressed"]
