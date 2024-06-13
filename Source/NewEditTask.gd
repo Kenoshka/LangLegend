@@ -141,3 +141,7 @@ func _on_button_save_pressed():
 	else:
 		$AcceptDialog.dialog_text = "Вы не внесли текст задания."
 		$AcceptDialog.show()
+
+
+func _on_button_exit_pressed():
+	get_tree().change_scene_to_file("res://Source/DevMain.tscn")

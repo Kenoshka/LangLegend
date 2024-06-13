@@ -8,7 +8,7 @@ func _ready():
 	DbHandler.db.query("SELECT * FROM Tasks T join Topics on T.TaskTopic = Topics.TopicId")
 	for task in DbHandler.db.query_result:
 		var data_scn
-		if task["TaskType"] == 1:
+		if task["TaskType"] == 1 or task["TaskType"] == 3:
 			data_scn = DataTestTask.instantiate()
 			data_scn.set_labels(task["TaskText"], task["TopicName"], task["TaskAnswers"])
 		else:

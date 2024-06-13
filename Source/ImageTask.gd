@@ -22,7 +22,9 @@ func _ready():
 	ANSWERS = TASK["TaskAnswers"].split("_")
 	TRUE_ANSWER = int(TASK["TaskRightAnswer"])
 	$VBoxContainer/TaskQuestion.text = TASK["TaskQuestion"]
-	$VBoxContainer/TaskImage.texture = load("res://Assets/Images/" + TASK["TaskText"])
+	var path = "res://Assets/Images/" + TASK["TaskText"]
+	if FileAccess.file_exists(path):
+		$VBoxContainer/TaskImage.texture = load(path)
 	for answer in ANSWERS:
 		var answer_scene = ANSWER_BUTT.instantiate()
 		answer_scene.pressed.connect(On_Answer_Button.bind(answer_scene))
