@@ -338,7 +338,7 @@ anchor_bottom = 0.125
 grow_horizontal = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="BGProfile" type="TextureRect" parent="Profile"]
+[node name="BGProfile" type="NinePatchRect" parent="Profile"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -346,6 +346,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_lrqpj")
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
 
 [node name="AvatarRect" type="TextureRect" parent="Profile"]
 layout_mode = 1
@@ -398,6 +402,10 @@ grow_horizontal = 2
 grow_vertical = 2
 rounded = true
 nine_patch_stretch = true
+stretch_margin_left = 3
+stretch_margin_top = 3
+stretch_margin_right = 3
+stretch_margin_bottom = 3
 texture_progress = ExtResource("5_wbba5")
 
 [node name="ExpLabel" type="Label" parent="Profile/ProgressBG"]
