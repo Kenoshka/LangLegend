@@ -21,7 +21,7 @@ enum {
 
 
 var DATA = {
-	PLAYER_NAME:"Hehe",
+	PLAYER_NAME:"",
 	AVATAR:0,
 	PROFILE_CREATED:false,
 	START_DATE:Time.get_unix_time_from_system(),
